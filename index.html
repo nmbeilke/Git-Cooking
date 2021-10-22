@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<div id ="page">
+<div>
     <!-- This is going to pop up when the user scrolls outside the homepage -->
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
@@ -19,7 +19,7 @@
           <a class="navbar-item" href="##">
             <img src="##" width="112" height="28">
           </a>
-      
+      <!-- This is for the collapsable menu option -->
           <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
@@ -35,15 +35,15 @@
       
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
-                Let Cook
+                Recipies
               </a>
               <div class="navbar-dropdown">
                 <a class="navbar-item">
-                    What are you in the mood to eat?
+                    <p>##</p>
                 </a>
                 <hr class="navbar-divider">
                 <a class="navbar-item">
-                    What are you in the mood to listen to?
+                    <p>##</p>
                 </a>
               </div>
             </div>
@@ -64,32 +64,33 @@
         </div>
       </nav>
 
-<div id="homepage">
-<video autoplay muted loop id="myVideo"> /
-    <source src="./assets/media/chef-cooking.mp4" type="video/mp4">
-  </video>
-
-  <div class="container content">
-    <div class="##">
-        <P>With more and more people choosing to stay indoors, home cooked meals are becoming popular.
-         But making the same meals over and over can get boring. ##CatchyTitle## makes it more fun and engaging.
-         By intergrating music with finding new recipies, ##CatchyTitle## helps creates an atmosphere you need 
-         from the fridge to the stove, right down to the table.</P>
-        <hr>
-        <div class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-              <!-- Any other Bulma elements you want -->
+    <!-- homepage -->
+<section class="hero is-link is-fullheight-with-navbar">
+    <div class="hero-body">
+        <video autoplay muted loop id="myVideo"> /
+            <source src="./assets/media/chef-cooking.mp4" type="video/mp4">
+          </video>
+        
+          <div class="container content">
+            <div class="##">
+                <P>With more and more people choosing to stay indoors, home cooked meals are becoming popular.
+                 But making the same meals over and over can get boring. ##CatchyTitle## makes it more fun and engaging.
+                 By intergrating music with finding new recipies, ##CatchyTitle## helps creates an atmosphere you need 
+                 from the fridge to the stove, right down to the table.</P>
+                <hr>
+                <button class="button"><a href="#page">Let's get cooking!</a></button>
             </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-        </div>
-
-
     </div>
-  </div>
+</section>
 
-  
-</div>
+    <!-- The main part of the website -->
+<main id="page" class="section is-large">
+    <h1 class="title">Food and Mood Matcher</h1>
+    <h2 class="subtitle">
+      Get a recipe and a playlist pairing by selecting an option below
+    </h2>
+      </section>
+    </main>
 
 </div>
 
