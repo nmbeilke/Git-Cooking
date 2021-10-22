@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // javascript
 //-----------------------------------------js for Scroll to Top Page Button----------------------------------
 //Get the button:
@@ -21,6 +20,3 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 //-----------------------------------------/end js for Scroll to Top Page Button----------------------------------
-=======
-// javascript
->>>>>>> 65f1c1564486d7284b8900afe671d54e8d540fb2
