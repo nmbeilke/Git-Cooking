@@ -5,96 +5,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Recipe-Music Generator</title>
 </head>
 
 <body>
-<div>
-    <!-- This is going to pop up when the user scrolls outside the homepage -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  <!-- hero -->
+  <section class="hero is-small">
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="##">
-            <img src="##" width="112" height="28">
-          </a>
-      <!-- This is for the collapsable menu option -->
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
+    <div class="hero-head">
+      <!-- navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-end">
             <a class="navbar-item">
               Home
             </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                Recipies
-              </a>
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                    <p>##</p>
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                    <p>##</p>
-                </a>
-              </div>
-            </div>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-primary">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light">
-                  Log in
-                </a>
-              </div>
-            </div>
+            <a class="navbar-item">
+              About
+            </a>
+            <a class="navbar-item">
+              All Recipes
+            </a>
           </div>
         </div>
       </nav>
-
-    <!-- homepage -->
-<section class="hero is-link is-fullheight-with-navbar">
-    <div class="hero-body">
-        <video autoplay muted loop id="myVideo"> /
-            <source src="./assets/media/chef-cooking.mp4" type="video/mp4">
-          </video>
-        
-          <div class="container content">
-            <div class="##">
-                <P>With more and more people choosing to stay indoors, home cooked meals are becoming popular.
-                 But making the same meals over and over can get boring. ##CatchyTitle## makes it more fun and engaging.
-                 By intergrating music with finding new recipies, ##CatchyTitle## helps creates an atmosphere you need 
-                 from the fridge to the stove, right down to the table.</P>
-                <hr>
-                <button class="button"><a href="#page">Let's get cooking!</a></button>
-            </div>
     </div>
-</section>
+  
+  <!-- header -->
+    <div class="hero-body mt-0">
 
-    <!-- The main part of the website -->
-<main id="page" class="section is-large">
-    <h1 class="title">Food and Mood Matcher</h1>
-    <h2 class="subtitle">
-      Get a recipe and a playlist pairing by selecting an option below
-    </h2>
-      </section>
-    </main>
+      <!-- title -->
+      <div class="container center">
+        <h1 class="title">
+            Food and Music Generator
+        </h1>
+      </div>
 
-</div>
+      <!-- subtitle -->
+      <div class="container center">
+        <p>
+            Get a <strong>recipe</strong> and a <strong>playlist</strong> pairing by selecting an option below.
+        </p>
+      </div>
 
-    <script src="./assets/javascript/script.js"></script>
+    </div>
+  </section>
+  <!-- dropdown -->
+  <div class="field center">
+
+    <!-- recipes -->
+    <p class="control has-icons-left">
+      <span class="select">
+        <select>
+            <option>Select a Recipe</option>
+            <option>Recipe 1</option>
+            <option>Recipe 2</option>
+            <option>Recipe 3</option>
+          </select>
+      </span>
+      <span class="icon is-left">
+        <i class="fa fa-cutlery fa-border" aria-hidden="true" style="color: rgb(124, 124, 124);"></i>
+      </span>
+    </p>
+
+    <!-- playlists -->
+    <p class="control has-icons-left">
+      <span class="select">
+        <select>
+            <option>Select a Mood</option>
+            <option>Playlist 1</option>
+            <option>Playlist 2</option>
+            <option>Playlist 3</option>
+
+          </select>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fa fa-spotify fa-border" aria-hidden="true" style="color: rgb(124, 124, 124);"></i>
+      </span>
+    </p>
+
+  </div>
+
+  <!-- submit/cancel buttons -->
+  <div class="field center">
+    <a class="button is-primary ">
+      Submit
+    </a>
+    <a class="button is-light">
+      Cancel
+    </a>
+  </div>
+
+  <script src="./assets/javascript/script.js"></script>
+
 </body>
 
 </html>

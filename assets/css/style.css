@@ -1,4 +1,5 @@
 /* bulma */
+<<<<<<< HEAD
 /*-----------------Style for Scroll to Top Page Button--------------------------*/
 #myBtn {
     display: none; /* Hidden by default */
@@ -41,3 +42,26 @@
     max-width: 500px;
   }
 /*----------------Style for video background; background is looped muted video-------*/
+=======
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    padding: 10px;
+}
+
+.hero {
+    background-color: rgb(200, 245, 236);
+}
+
+.control {
+    margin: 30px 30px 50px;
+}
+
+.button {
+    margin: 2px;
+}
+>>>>>>> 23bf6e97cb576b14fb31fbc001f8a4b9e15932b5
