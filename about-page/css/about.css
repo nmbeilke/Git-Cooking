@@ -6,10 +6,21 @@
   outline: 0px;
   vertical-align: baseline;
   }
-.p{
+
+
+.p {
   color: black;
   font-size: 16px;
 }
+.title {
+  font-size: 16px;
+  text-align: center;
+}
+
+.box {
+  background-color: rgb(200, 245, 236);
+}
+
 /*-----------------Style for Scroll to Top Page Button--------------------------*/
 #myBtn {
     display: none; /* Hidden by default */
@@ -20,7 +31,7 @@
     border: none; /* Remove borders */
     outline: none; /* Remove outline */
     background-color: rgb(255, 255, 255); /* Set a background color */
-    color: white; /* Text color */
+    color: black; /* Text color */
     cursor: pointer; /* Add a mouse pointer on hover */
     padding: 10px; /* Some padding */
     border-radius: 10px; /* Rounded corners */
