@@ -1,48 +1,4 @@
 /* bulma */
-<<<<<<< HEAD
-/*-----------------Style for Scroll to Top Page Button--------------------------*/
-#myBtn {
-    display: none; /* Hidden by default */
-    position: fixed;
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: rgb(255, 255, 255); /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 10px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    font-size: 10px; /* Increase font size */
-  }
-  
-  #myBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
-  }
-/*-----------------/end Style for Scroll to Top Page Button--------------------------*/
-
-
-/*----------------Style for video background; background is looped muted video-------*/
-/* Style the video: 100% width and height to cover the entire window */
-#myVideo {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-  }
-  
-  /* Add some content at the bottom of the video/page */
-  .content {
-    color: white;
-    object-position: center;
-    padding: 20px;
-    max-width: 500px;
-  }
-/*----------------Style for video background; background is looped muted video-------*/
-=======
 
 .center {
     display: flex;
@@ -64,4 +20,3 @@
 .button {
     margin: 2px;
 }
->>>>>>> 23bf6e97cb576b14fb31fbc001f8a4b9e15932b5
