@@ -4,17 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Recipe-Music Generator</title>
 </head>
 
 <body>
-    
-<header></header>
+  <!-- hero -->
+  <section class="hero is-small">
 
-<main></main>
+    <div class="hero-head">
+      <!-- navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-end">
+            <a class="navbar-item">
+              Home
+            </a>
+            <a class="navbar-item">
+              About
+            </a>
+            <a class="navbar-item">
+              All Recipes
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  
+  <!-- header -->
+    <div class="hero-body mt-0">
 
-    <script src="./assets/javascript/script.js"></script>
+      <!-- title -->
+      <div class="container center">
+        <h1 class="title">
+            Food and Music Generator
+        </h1>
+      </div>
+
+      <!-- subtitle -->
+      <div class="container center">
+        <p>
+            Get a <strong>recipe</strong> and a <strong>playlist</strong> pairing by selecting an option below.
+        </p>
+      </div>
+
+    </div>
+  </section>
+  <!-- dropdown -->
+  <div class="field center">
+
+    <!-- recipes -->
+    <p class="control has-icons-left">
+      <span class="select">
+        <select>
+            <option>Select a Recipe</option>
+            <option>Recipe 1</option>
+            <option>Recipe 2</option>
+            <option>Recipe 3</option>
+          </select>
+      </span>
+      <span class="icon is-left">
+        <i class="fa fa-cutlery fa-border" aria-hidden="true" style="color: rgb(124, 124, 124);"></i>
+      </span>
+    </p>
+
+    <!-- playlists -->
+    <p class="control has-icons-left">
+      <span class="select">
+        <select>
+            <option>Select a Mood</option>
+            <option>Playlist 1</option>
+            <option>Playlist 2</option>
+            <option>Playlist 3</option>
+
+          </select>
+      </span>
+      <span class="icon is-small is-left">
+        <i class="fa fa-spotify fa-border" aria-hidden="true" style="color: rgb(124, 124, 124);"></i>
+      </span>
+    </p>
+
+  </div>
+
+  <!-- submit/cancel buttons -->
+  <div class="field center">
+    <a class="button is-primary ">
+      Submit
+    </a>
+    <a class="button is-light">
+      Cancel
+    </a>
+  </div>
+
+  <script src="./assets/javascript/script.js"></script>
+
 </body>
 
 </html>

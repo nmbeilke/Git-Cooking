@@ -1,1 +1,22 @@
 /* bulma */
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    padding: 10px;
+}
+
+.hero {
+    background-color: rgb(200, 245, 236);
+}
+
+.control {
+    margin: 30px 30px 50px;
+}
+
+.button {
+    margin: 2px;
+}
