@@ -1,52 +1,72 @@
 // javascript
+var food;
+var drink;
+var submitBtn = document.getElementById('submit');
+var foodContainer = document.getElementById('foodContainer');
+var drinkContainer = document.getElementById('drinkContainer');
 
-//-----------------------------------------js for Scroll to Top Page Button----------------------------------
-//Get the button:
-mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
+function foodSelect() {
+    var select = document.getElementById('recipeSelect');
+    food = select.options[select.selectedIndex].value;
+    console.log(food)
 }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+function drinkSelect() {
+    var selectDrink = document.getElementById('drinkSelect');
+    drink = selectDrink.options[selectDrink.selectedIndex].value;
+    console.log(drink);
 }
-//-----------------------------------------/end js for Scroll to Top Page Button----------------------------------
 
 
-//-----------------------------------------js for collaspable nav bar menu----------------------------------
-document.addEventListener('DOMContentLoaded', () => {
 
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+function fetchRecipe() {
+    fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}&app_id=c802a2ec&app_key=687e250fe13f028dca68ea450a6de6ee&random=true`)
+        .then(res => res.json())
+        .then(data => {
+            var recipeData = data.hits;
+            fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`).then(res => res.json()).then(cocktail => {
+                console.log(cocktail.drinks)
+                var cocktailData = cocktail.drinks;
+                render(recipeData, cocktailData)
+            })
+        })
+}
+function render(food, drinks) {
+    renderRecipe(food)
+    renderCocktail(drinks)
+}
 
-  // Check if there are any navbar burgers
-  if ($navbarBurgers.length > 0) {
+function renderRecipe(recipes) {
+    console.log(recipes[0].recipe)
+    var data =recipes[0].recipe
+    foodContainer.innerHTML = '';
 
-    // Add a click event on each of them
-    $navbarBurgers.forEach( el => {
-      el.addEventListener('click', () => {
+    //create card elements
 
-        // Get the target from the "data-target" attribute
-        const target = el.dataset.target;
-        const $target = document.getElementById(target);
+    var card= document.createElement('div');
+    var cardImgContainer= document.createElement('div');
+    var imgFigure = document.createElement('figure');
+    var cardImg = document.createElement('img');
 
-        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        el.classList.toggle('is-active');
-        $target.classList.toggle('is-active');
+    //set classes for styling from bulma
+    card.setAttribute('class', 'card');
+    cardImgContainer.setAttribute('class', 'card-image');
+    imgFigure.setAttribute('class', 'image is-4by4');
+    cardImg.setAttribute('src', data.image)
+    cardImg.setAttribute('alt', data.label)
 
-      });
-    });
-  }
+    //append image container to card
+    imgFigure.append(cardImg);
+    cardImgContainer.append(imgFigure);
 
-});
-//-----------------------------------------/end js for collaspable nav bar menu----------------------------------
+    //append card to foodContainer
+    card.append(cardImgContainer);
+    foodContainer.append(card);
+
+}
+
+function renderCocktail(drinkInfo){
+
+}
+
+submitBtn.onclick = fetchRecipe;
