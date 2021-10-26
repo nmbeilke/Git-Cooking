@@ -31,6 +31,7 @@ function fetchRecipe() {
             })
         })
 }
+
 function render(food, drinks) {
     renderRecipe(food)
     renderCocktail(drinks)
@@ -51,7 +52,7 @@ function renderRecipe(recipes) {
     //set classes for styling from bulma
     card.setAttribute('class', 'card');
     cardImgContainer.setAttribute('class', 'card-image');
-    imgFigure.setAttribute('class', 'image is-4by4');
+    imgFigure.setAttribute('class', 'image is-4by3');
     cardImg.setAttribute('src', data.image)
     cardImg.setAttribute('alt', data.label)
 
@@ -80,7 +81,7 @@ function renderCocktail(beer){
     //set classes for styling from bulma
     card.setAttribute('class', 'card');
     cardImgContainer.setAttribute('class', 'card-image');
-    imgFigure.setAttribute('class', 'image is-4by4');
+    imgFigure.setAttribute('class', 'image is-4by3');
     cardImg.setAttribute('src', cocktail.strDrinkThumb)
     cardImg.setAttribute('alt', cocktail.label)
 
