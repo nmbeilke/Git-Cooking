@@ -66,8 +66,8 @@ function renderRecipe(recipes) {
 }
 
 function renderCocktail(beer){
-    //console.log(beer[0].random)
-    var cocktail = beer[0].random 
+    console.log(beer)
+    var cocktail = beer[0] 
     drinkContainer.innerHTML = '';
 
 
@@ -81,7 +81,7 @@ function renderCocktail(beer){
     card.setAttribute('class', 'card');
     cardImgContainer.setAttribute('class', 'card-image');
     imgFigure.setAttribute('class', 'image is-4by4');
-    cardImg.setAttribute('src', cocktail.image)
+    cardImg.setAttribute('src', cocktail.strDrinkThumb)
     cardImg.setAttribute('alt', cocktail.label)
 
     //append image container to card
