@@ -94,5 +94,4 @@ function renderCocktail(beer){
 
 }
 
-
 submitBtn.onclick = fetchRecipe;
