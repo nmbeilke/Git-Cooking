@@ -67,7 +67,7 @@ function renderRecipe(recipes) {
 }
 
 function renderCocktail(beer){
-    console.log(beer)
+    // console.log(beer)
     var cocktail = beer[0] 
     drinkContainer.innerHTML = '';
 
