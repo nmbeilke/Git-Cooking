@@ -65,8 +65,34 @@ function renderRecipe(recipes) {
 
 }
 
-function renderCocktail(drinkInfo){
+function renderCocktail(beer){
+    //console.log(beer[0].random)
+    var cocktail = beer[0].random 
+    drinkContainer.innerHTML = '';
+
+
+    //create card elements
+    var card= document.createElement('div');
+    var cardImgContainer= document.createElement('div');
+    var imgFigure = document.createElement('figure');
+    var cardImg = document.createElement('img');
+
+    //set classes for styling from bulma
+    card.setAttribute('class', 'card');
+    cardImgContainer.setAttribute('class', 'card-image');
+    imgFigure.setAttribute('class', 'image is-4by4');
+    cardImg.setAttribute('src', cocktail.image)
+    cardImg.setAttribute('alt', cocktail.label)
+
+    //append image container to card
+    imgFigure.append(cardImg);
+    cardImgContainer.append(imgFigure);
+
+    //append card to foodContainer
+    card.append(cardImgContainer);
+    drinkContainer.append(card);
 
 }
+
 
 submitBtn.onclick = fetchRecipe;
