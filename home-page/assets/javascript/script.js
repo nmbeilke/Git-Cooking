@@ -1,23 +1,41 @@
 // javascript
 var food;
 var drink;
-var submitBtn = document.getElementById('submit');
-var foodContainer = document.getElementById('foodContainer');
-var drinkContainer = document.getElementById('drinkContainer');
+var submitBtn = document.querySelector('#submit');
+var foodContainer = document.querySelector('#foodContainer');
+var drinkContainer = document.querySelector('#drinkContainer');
 
 function foodSelect() {
-    var select = document.getElementById('recipeSelect');
+    var select = document.querySelector('#recipeSelect');
     food = select.options[select.selectedIndex].value;
     console.log(food)
 }
 
 function drinkSelect() {
-    var selectDrink = document.getElementById('drinkSelect');
+    var selectDrink = document.querySelector('#drinkSelect');
     drink = selectDrink.options[selectDrink.selectedIndex].value;
     console.log(drink);
 }
 
+// to remove the card element
+var cardEl = document.querySelector(".columns");
 
+cardEl.addEventListener("onclick", function (event) {
+    var element = event.target;
+
+    if (element.matches(".card")) {
+        var state = element.getAttribute("data-state");
+    
+        if (state === "hidden") {
+            element.textContent = element.fetchRecipe
+            element.dataset.state = "visible";
+
+    } else {
+        element.textContent = ""
+        element.setAttribute ("data-state", "hidden")
+    }
+}
+});
 
 function fetchRecipe() {
     fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}&app_id=c802a2ec&app_key=687e250fe13f028dca68ea450a6de6ee&random=true`)
@@ -43,7 +61,6 @@ function renderRecipe(recipes) {
     foodContainer.innerHTML = '';
 
     //create card elements
-
     var card= document.createElement('div');
     var cardImgContainer= document.createElement('div');
     var imgFigure = document.createElement('figure');
@@ -66,11 +83,10 @@ function renderRecipe(recipes) {
 
 }
 
-function renderCocktail(beer){
-    // console.log(beer)
-    var cocktail = beer[0] 
+function renderCocktail(liquid){
+    // console.log(liquid)
+    var cocktail = liquid[0] 
     drinkContainer.innerHTML = '';
-
 
     //create card elements
     var card= document.createElement('div');
