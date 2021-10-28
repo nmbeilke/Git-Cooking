@@ -1,51 +1,48 @@
 //placemarker
-//wtf am i writing?
-var saveBtn = document.getElementById("save");
-//I assume there's going to be a favorite button within the container that
-//holds the recipies and the cocktail.
+var saveBtn = document.querySelector("#save"); //I assume there's going to be a favorite button within the container that holds the recipies and the cocktail.
+var favoriteFood = document.querySelector("#foodContainer")
+var favoriteDrink = document.querySelector("#drinkContainer")
+var favoriteContainer = document.querySelector("#favoriteContainer")
 
 
-//------------script part that displays the favorite on the page
-function displayFavorite() {
-    // either get scores from localstorage or set to empty array
-    var favorite = JSON.parse(window.localStorage.getItem("favorite")) || [];
-  
-  
-    favorite.forEach(function(score) {
-      // create li tag for each high score
-      var liTag = document.createElement("li");
-  
-      // display on page
-      var olEl = document.getElementById("favorite");
-      olEl.appendChild(liTag);
-    });
-  }
-//------------/end script part that displays the favorite on the page  
+saveBtn.addEventListener("click", function(event){
+    event.preventDefault()
 
-//------------ script for removing a favorited recipe
-function clearFavorite() {
-    window.localStorage.removeItem("favorite");
-    window.location.reload();
+var favoriteCombo = {
+    favoriteDrink: favoriteDrink.value,
+    favoriteFood: favoriteFood.value
 }
-  
-document.getElementById("clear").onclick = clearFavorite;
-  
-// run function when page loads
-displayFavorite();
+console.log(favoriteDrink)
+console.log(favoriteDrink)
 
-//------------ script for removing a favorited recipe
+localStorage.setItem("favoriteCombo", JSON.stringify(favoriteCombo))
+console.log(favoriteCombo)
 
+storeFavorite()
+})
 
-//------------script part that puts favorites in local storage
-function saveFavorite() {
-    // get value of input box
-    var initials = initialsEl.value.trim();
+function storeFavorite() {
+    var saveFavorite = JSON.parse(localStorage.getItem("favoriteCombo"))
+    if (saveFavorite !== null){
+        console.log ("There's an Array!")
+    
     }
-      // save to localstorage
-      window.localStorage.setItem("favorite", JSON.stringify(favorite));
-  
-//user clicks save button and it'll run the function that saves in local storage?
+}
 
-saveBtn.onclick = saveFavorite;
-  
-//------------script part that puts favorites in local storage
+function createTiles(){
+    var tileContainer = document.createElement("article")
+    tileContainer.classList.add("tile", "is-child", "box")
+
+    var tileTitle = document.createElement("p")
+    tileTitle.classList.add("title")
+    tileTitle.innerHTML = foodName
+    tileContainer.append(tileTitle)
+    //the title page is going to come from the user input.
+    //there's going to be a variable called "food name"
+    //the variable is going to take whatever the user inputted from a texable area when the user favorites a recipe.
+
+    var tileFrame = document.createElement("figure")
+    tileFrame.classList.add("image", "is-128x128")
+
+    favo.append(tileContainer)
+}
