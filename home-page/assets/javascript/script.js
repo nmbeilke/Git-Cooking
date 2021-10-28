@@ -2,8 +2,8 @@
 var food;
 var drink;
 var submitBtn = document.querySelector('#submit');
-var foodContainer = document.querySelector('#foodContainer');
-var drinkContainer = document.querySelector('#drinkContainer');
+var foodContainer = document.querySelector('#recipeContainer');
+// var drinkContainer = document.querySelector('#drinkContainer');
 
 function foodSelect() {
     var select = document.querySelector('#recipeSelect');
@@ -16,26 +16,6 @@ function drinkSelect() {
     drink = selectDrink.options[selectDrink.selectedIndex].value;
     console.log(drink);
 }
-
-// to remove the card element
-var cardEl = document.querySelector(".columns");
-
-cardEl.addEventListener("onclick", function (event) {
-    var element = event.target;
-
-    if (element.matches(".card")) {
-        var state = element.getAttribute("data-state");
-    
-        if (state === "hidden") {
-            element.textContent = element.fetchRecipe
-            element.dataset.state = "visible";
-
-    } else {
-        element.textContent = ""
-        element.setAttribute ("data-state", "hidden")
-    }
-}
-});
 
 function fetchRecipe() {
     fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}&app_id=c802a2ec&app_key=687e250fe13f028dca68ea450a6de6ee&random=true`)
@@ -51,6 +31,7 @@ function fetchRecipe() {
 }
 
 function render(food, drinks) {
+    foodContainer.innerHTML = '';
     renderRecipe(food)
     renderCocktail(drinks)
 }
@@ -58,27 +39,56 @@ function render(food, drinks) {
 function renderRecipe(recipes) {
     console.log(recipes[0].recipe)
     var data =recipes[0].recipe
-    foodContainer.innerHTML = '';
+    // foodContainer.innerHTML = '';
 
     //create card elements
     var card= document.createElement('div');
+    var cardHeader = document.createElement('header');
+    var cardTitle = document.createElement('p');
     var cardImgContainer= document.createElement('div');
     var imgFigure = document.createElement('figure');
     var cardImg = document.createElement('img');
+    var cardContentContainer = document.createElement('div');
+    var cardContent = document.createElement('div');
+    var recipeUrl = document.createElement('a');
+    var cardFooter = document.createElement('footer');
+    var footerBtn = document.createElement('a');
+
 
     //set classes for styling from bulma
-    card.setAttribute('class', 'card');
+    card.setAttribute('class', 'card column is-3 is-offset-2');
+    cardHeader.setAttribute('class', 'card-header')
+    cardTitle.setAttribute('class', 'card-header-title')
     cardImgContainer.setAttribute('class', 'card-image');
-    imgFigure.setAttribute('class', 'image is-4by3');
+    imgFigure.setAttribute('class', 'image is-4x3');
     cardImg.setAttribute('src', data.image)
     cardImg.setAttribute('alt', data.label)
+    cardContentContainer.setAttribute('class', 'card-content');
+    cardContent.setAttribute('class', 'content')
+    recipeUrl.setAttribute('href', data.url)
+    cardFooter.setAttribute('class', 'card-footer');
+    footerBtn.setAttribute('class', 'card-footer-item button is-primary');
 
-    //append image container to card
+    //set content to new elements
+    cardTitle.textContent = data.label;
+    recipeUrl.textContent = data.label;
+    footerBtn.textContent = "Save to Favorites"
+
+
+    //button click goes here
+        // footerBtn.onclick = ;
+
+    //append all children to parent containers 
+    cardHeader.append(cardTitle);
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
+    cardContent.append(recipeUrl);
+    cardContentContainer.append(cardContent);
+    cardFooter.append(footerBtn);
+
 
     //append card to foodContainer
-    card.append(cardImgContainer);
+    card.append(cardHeader, cardImgContainer, cardContentContainer, cardFooter);
     foodContainer.append(card);
 
 }
@@ -86,28 +96,53 @@ function renderRecipe(recipes) {
 function renderCocktail(liquid){
     // console.log(liquid)
     var cocktail = liquid[0] 
-    drinkContainer.innerHTML = '';
 
     //create card elements
     var card= document.createElement('div');
+    var cardHeader = document.createElement('header');
+    var cardTitle = document.createElement('p');
     var cardImgContainer= document.createElement('div');
     var imgFigure = document.createElement('figure');
     var cardImg = document.createElement('img');
+    var cardContentContainer = document.createElement('div');
+    var cardContent = document.createElement('div');
+    var cardFooter = document.createElement('footer');
+    var footerBtn = document.createElement('a');
+
 
     //set classes for styling from bulma
-    card.setAttribute('class', 'card');
+    card.setAttribute('class', 'card column is-3 is-offset-2');
+    cardHeader.setAttribute('class', 'card-header')
+    cardTitle.setAttribute('class', 'card-header-title')
     cardImgContainer.setAttribute('class', 'card-image');
-    imgFigure.setAttribute('class', 'image is-4by3');
+    imgFigure.setAttribute('class', 'image is-4x3');
     cardImg.setAttribute('src', cocktail.strDrinkThumb)
-    cardImg.setAttribute('alt', cocktail.label)
+    cardImg.setAttribute('alt', cocktail.strDrink)
+    cardContentContainer.setAttribute('class', 'card-content');
+    cardContent.setAttribute('class', 'content')
+    cardFooter.setAttribute('class', 'card-footer');
+    footerBtn.setAttribute('class', 'card-footer-item button is-primary');
 
-    //append image container to card
+    //set content to new elements
+    cardTitle.textContent = cocktail.strDrink;
+    cardContent.textContent = cocktail.strInstructions;
+    footerBtn.textContent = "Save to Favorites"
+
+
+    //button click goes here
+
+    // footerBtn.onclick = ;
+
+    //append all children to parent containers 
+    cardHeader.append(cardTitle);
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
+    cardContentContainer.append(cardContent);
+    cardFooter.append(footerBtn);
 
     //append card to foodContainer
-    card.append(cardImgContainer);
-    drinkContainer.append(card);
+    card.append(cardHeader, cardImgContainer, cardContentContainer, cardFooter);
+    foodContainer.append(card);
 
 }
 
