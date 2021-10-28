@@ -24,13 +24,28 @@ function fetchRecipe() {
         .then(res => res.json())
         .then(data => {
             var recipeData = data.hits;
-            fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`).then(res => res.json()).then(cocktail => {
-                console.log(cocktail.drinks)
-                var cocktailData = cocktail.drinks;
-                render(recipeData, cocktailData)
+            // fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`) //
+            fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?c=Cocktail", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+                    "x-rapidapi-key": "2e52245529msh07cfec66fbb7b81p1371cbjsnc6d6e5003628"
+                }
+            })
+            .then( res => {
+                // console.log(res.json())
+                return res.json();
+              })
+            .then(cocktail => {
+                console.log(cocktail);
+                var randomDrink = cocktail.drinks[Math.floor(Math.random()*cocktail.drinks.length)];
+                console.log(randomDrink);
+                // console.log(cocktail.drinks)
+                // var cocktailData = cocktail.drinks;
+                // render(recipeData, cocktailData)
             })
         })
-}
+    }
 function render(food, drinks) {
     renderRecipe(food)
     renderCocktail(drinks)
