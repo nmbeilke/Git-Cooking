@@ -1,5 +1,5 @@
 //placemarker
-var saveBtn = document.querySelector("#save"); //I assume there's going to be a favorite button within the container that holds the recipies and the cocktail.
+var saveBtn = document.getElementsByClassName("card-footer-item button is-primary"); //I assume there's going to be a favorite button within the container that holds the recipies and the cocktail.
 var favoriteFood = document.querySelector("#recipeContainer")
 var favoriteContainer = document.querySelector("#favoriteContainer")
 
@@ -41,5 +41,5 @@ function createTiles(){
     var tileFrame = document.createElement("figure")
     tileFrame.classList.add("image", "is-128x128")
 
-    favo.append(tileContainer)
+    favoriteContainer.append(tileContainer)
 }
