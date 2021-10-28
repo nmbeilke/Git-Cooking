@@ -21,6 +21,14 @@
     margin: 2px;
 }
 
+.card {
+    border-radius: 1px;
+}
+
+/* #hidden{
+    display: none;
+  } */
+
 /*-----------------Style for Scroll to Top Page Button--------------------------*/
 #myBtn {
     display: none; /* Hidden by default */
