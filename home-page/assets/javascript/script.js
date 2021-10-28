@@ -35,7 +35,7 @@ function render(food, drinks) {
     renderRecipe(food)
     renderCocktail(drinks)
 }
-var recipieFooterBtn = document.createElement('a');
+var recipeFooterBtn = document.createElement('a');
 
 function renderRecipe(recipes) {
     console.log(recipes[0].recipe)
@@ -68,12 +68,12 @@ function renderRecipe(recipes) {
     cardContent.setAttribute('class', 'content')
     recipeUrl.setAttribute('href', data.url)
     cardFooter.setAttribute('class', 'card-footer');
-    recipieFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
+    recipeFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
 
     //set content to new elements
     cardTitle.textContent = data.label;
     recipeUrl.textContent = data.label;
-    recipieFooterBtn.textContent = "Save to Favorites"
+    recipeFooterBtn.textContent = "Save to Favorites"
 
 
     //button click goes here
@@ -85,7 +85,7 @@ function renderRecipe(recipes) {
     cardImgContainer.append(imgFigure);
     cardContent.append(recipeUrl);
     cardContentContainer.append(cardContent);
-    cardFooter.append(recipieFooterBtn);
+    cardFooter.append(recipeFooterBtn);
 
 
     //append card to foodContainer

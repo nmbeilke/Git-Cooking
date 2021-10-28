@@ -1,11 +1,11 @@
 //placemarker
 var cocktailSaveBtn = cocktailFooterBtn;
-var recipieSaveBtn =  recipieFooterBtn //I assume there's going to be a favorite button within the container that holds the recipies and the cocktail.
+var recipeFooterBtn =  recipieFooterBtn //I assume there's going to be a favorite button within the container that holds the recipies and the cocktail.
 var favoriteFood = document.querySelector("#recipeContainer")
 var favoriteContainer = document.querySelector("#favoriteContainer")
 
 
-recipieSaveBtn.addEventListener("click", function(event){
+recipeFooterBtn.addEventListener("click", function(event){
     event.preventDefault()
 
 var favoriteCombo = {
