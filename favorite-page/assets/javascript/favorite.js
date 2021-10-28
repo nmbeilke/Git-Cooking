@@ -1,7 +1,6 @@
 //placemarker
 var saveBtn = document.querySelector("#save"); //I assume there's going to be a favorite button within the container that holds the recipies and the cocktail.
-var favoriteFood = document.querySelector("#foodContainer")
-var favoriteDrink = document.querySelector("#drinkContainer")
+var favoriteFood = document.querySelector("#recipeContainer")
 var favoriteContainer = document.querySelector("#favoriteContainer")
 
 
@@ -9,11 +8,9 @@ saveBtn.addEventListener("click", function(event){
     event.preventDefault()
 
 var favoriteCombo = {
-    favoriteDrink: favoriteDrink.value,
     favoriteFood: favoriteFood.value
 }
-console.log(favoriteDrink)
-console.log(favoriteDrink)
+console.log(favoriteCombo)
 
 localStorage.setItem("favoriteCombo", JSON.stringify(favoriteCombo))
 console.log(favoriteCombo)
