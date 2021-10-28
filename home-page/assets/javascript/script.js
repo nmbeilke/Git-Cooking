@@ -40,7 +40,7 @@ function fetchRecipe() {
                 console.log(randomDrink);
                 // console.log(cocktail.drinks)
                 // var cocktailData = cocktail.drinks;
-                // render(recipeData, cocktailData)
+                render(recipeData, randomDrink)
             })
         })
     }
