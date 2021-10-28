@@ -35,6 +35,7 @@ function render(food, drinks) {
     renderRecipe(food)
     renderCocktail(drinks)
 }
+var recipeFooterBtn = document.createElement('a');
 
 function renderRecipe(recipes) {
     console.log(recipes[0].recipe)
@@ -52,7 +53,7 @@ function renderRecipe(recipes) {
     var cardContent = document.createElement('div');
     var recipeUrl = document.createElement('a');
     var cardFooter = document.createElement('footer');
-    var footerBtn = document.createElement('a');
+
 
 
     //set classes for styling from bulma
@@ -67,22 +68,16 @@ function renderRecipe(recipes) {
     cardContent.setAttribute('class', 'content')
     recipeUrl.setAttribute('href', data.url)
     cardFooter.setAttribute('class', 'card-footer');
-    footerBtn.setAttribute('class', 'card-footer-item button is-primary');
+    recipeFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
 
     //set content to new elements
     cardTitle.textContent = data.label;
     recipeUrl.textContent = data.label;
-    footerBtn.textContent = "Save to Favorites"
+    recipeFooterBtn.textContent = "Save to Favorites"
 
 
     //button click goes here
-     footerBtn.onclick = 
-         function storeFavorite() {
-            var saveFavorite = JSON.parse(localStorage.getItem("favoriteCombo"))
-            if (saveFavorite !== null){
-                console.log ("There's an Array!")
-            }
-        }
+        // footerBtn.onclick = ;
 
     //append all children to parent containers 
     cardHeader.append(cardTitle);
@@ -90,7 +85,7 @@ function renderRecipe(recipes) {
     cardImgContainer.append(imgFigure);
     cardContent.append(recipeUrl);
     cardContentContainer.append(cardContent);
-    cardFooter.append(footerBtn);
+    cardFooter.append(recipeFooterBtn);
 
 
     //append card to foodContainer
@@ -98,6 +93,8 @@ function renderRecipe(recipes) {
     foodContainer.append(card);
 
 }
+var cocktailFooterBtn = document.createElement('a');
+
 
 function renderCocktail(liquid){
     // console.log(liquid)
@@ -113,7 +110,7 @@ function renderCocktail(liquid){
     var cardContentContainer = document.createElement('div');
     var cardContent = document.createElement('div');
     var cardFooter = document.createElement('footer');
-    var footerBtn = document.createElement('a');
+
 
 
     //set classes for styling from bulma
@@ -127,12 +124,12 @@ function renderCocktail(liquid){
     cardContentContainer.setAttribute('class', 'card-content');
     cardContent.setAttribute('class', 'content')
     cardFooter.setAttribute('class', 'card-footer');
-    footerBtn.setAttribute('class', 'card-footer-item button is-primary');
+    cocktailFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
 
     //set content to new elements
     cardTitle.textContent = cocktail.strDrink;
     cardContent.textContent = cocktail.strInstructions;
-    footerBtn.textContent = "Save to Favorites"
+    cocktailFooterBtn.textContent = "Save to Favorites"
 
 
     //button click goes here
@@ -144,7 +141,7 @@ function renderCocktail(liquid){
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
     cardContentContainer.append(cardContent);
-    cardFooter.append(footerBtn);
+    cardFooter.append(cocktailFooterBtn);
 
     //append card to foodContainer
     card.append(cardHeader, cardImgContainer, cardContentContainer, cardFooter);
