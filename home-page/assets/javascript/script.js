@@ -76,7 +76,13 @@ function renderRecipe(recipes) {
 
 
     //button click goes here
-        // footerBtn.onclick = ;
+     footerBtn.onclick = 
+         function storeFavorite() {
+            var saveFavorite = JSON.parse(localStorage.getItem("favoriteCombo"))
+            if (saveFavorite !== null){
+                console.log ("There's an Array!")
+            }
+        }
 
     //append all children to parent containers 
     cardHeader.append(cardTitle);
