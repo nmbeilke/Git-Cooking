@@ -22,19 +22,34 @@ function fetchRecipe() {
         .then(res => res.json())
         .then(data => {
             var recipeData = data.hits;
-            fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`).then(res => res.json()).then(cocktail => {
-                console.log(cocktail.drinks)
-                var cocktailData = cocktail.drinks;
-                render(recipeData, cocktailData)
+            // fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`) //
+            fetch("https://the-cocktail-db.p.rapidapi.com/filter.php?c=Cocktail", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+                    "x-rapidapi-key": "2e52245529msh07cfec66fbb7b81p1371cbjsnc6d6e5003628"
+                }
+            })
+            .then( res => {
+                // console.log(res.json())
+                return res.json();
+              })
+            .then(cocktail => {
+                console.log(cocktail);
+                var randomDrink = cocktail.drinks[Math.floor(Math.random()*cocktail.drinks.length)];
+                console.log(randomDrink);
+                // console.log(cocktail.drinks)
+                // var cocktailData = cocktail.drinks;
+                render(recipeData, randomDrink)
             })
         })
-}
-
+    }
 function render(food, drinks) {
     foodContainer.innerHTML = '';
     renderRecipe(food)
     renderCocktail(drinks)
 }
+var recipeFooterBtn = document.createElement('a');
 
 function renderRecipe(recipes) {
     console.log(recipes[0].recipe)
@@ -52,7 +67,7 @@ function renderRecipe(recipes) {
     var cardContent = document.createElement('div');
     var recipeUrl = document.createElement('a');
     var cardFooter = document.createElement('footer');
-    var footerBtn = document.createElement('a');
+
 
 
     //set classes for styling from bulma
@@ -67,12 +82,12 @@ function renderRecipe(recipes) {
     cardContent.setAttribute('class', 'content')
     recipeUrl.setAttribute('href', data.url)
     cardFooter.setAttribute('class', 'card-footer');
-    footerBtn.setAttribute('class', 'card-footer-item button is-primary');
+    recipeFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
 
     //set content to new elements
     cardTitle.textContent = data.label;
     recipeUrl.textContent = data.label;
-    footerBtn.textContent = "Save to Favorites"
+    recipeFooterBtn.textContent = "Save to Favorites"
 
 
     //button click goes here
@@ -84,7 +99,7 @@ function renderRecipe(recipes) {
     cardImgContainer.append(imgFigure);
     cardContent.append(recipeUrl);
     cardContentContainer.append(cardContent);
-    cardFooter.append(footerBtn);
+    cardFooter.append(recipeFooterBtn);
 
 
     //append card to foodContainer
@@ -92,6 +107,8 @@ function renderRecipe(recipes) {
     foodContainer.append(card);
 
 }
+var cocktailFooterBtn = document.createElement('a');
+
 
 function renderCocktail(liquid){
     // console.log(liquid)
@@ -107,7 +124,7 @@ function renderCocktail(liquid){
     var cardContentContainer = document.createElement('div');
     var cardContent = document.createElement('div');
     var cardFooter = document.createElement('footer');
-    var footerBtn = document.createElement('a');
+
 
 
     //set classes for styling from bulma
@@ -121,12 +138,12 @@ function renderCocktail(liquid){
     cardContentContainer.setAttribute('class', 'card-content');
     cardContent.setAttribute('class', 'content')
     cardFooter.setAttribute('class', 'card-footer');
-    footerBtn.setAttribute('class', 'card-footer-item button is-primary');
+    cocktailFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
 
     //set content to new elements
     cardTitle.textContent = cocktail.strDrink;
     cardContent.textContent = cocktail.strInstructions;
-    footerBtn.textContent = "Save to Favorites"
+    cocktailFooterBtn.textContent = "Save to Favorites"
 
 
     //button click goes here
@@ -138,7 +155,7 @@ function renderCocktail(liquid){
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
     cardContentContainer.append(cardContent);
-    cardFooter.append(footerBtn);
+    cardFooter.append(cocktailFooterBtn);
 
     //append card to foodContainer
     card.append(cardHeader, cardImgContainer, cardContentContainer, cardFooter);
