@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/javascript/favorite.js">
+    <link rel="stylesheet" href="../about-page/css/about.css">
+    <title>Recipe-Cocktail Generator</title>
+</head>
+
+<body>
+  <!-- hero -->
+
+  <section class="hero is-small">
+
+    <div class="hero-head">
+      <!-- navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-end">
+            <a class="navbar-item">
+              Home
+            </a>
+            <a id="about" class="navbar-item" href="../about-page/about.html">
+              About
+            </a>
+            <a id= "" class="navbar-item" href="favorite.html">
+              Favorites
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="hero-body mt-0">
+
+      <!-- title -->
+      <div class="container center">
+        <h1 class="title">
+            Food and Cocktail Generator
+        </h1>
+      </div>
+
+      <!-- subtitle -->
+      <div class="container center">
+        <p>
+            Get a <strong>recipe</strong> and a <strong>playlist</strong> pairing by selecting an option below.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+<!-- this is the container that stores the favorites -->
+<main class="container">
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+      <ol id = "favorite"></ol>
+
+      <button class= "button" id="clear">Unfavorite</button>
+      <a href="../index.html"><button class="button">Go Back</button></a>
+      </div>
+    </div>
+</main>
+    
+  <script src="../about-page/js/about.js"></script>
+  <script src="./assets/javascript/favorite.js"></script>
+
+</body>
+
+</html>
