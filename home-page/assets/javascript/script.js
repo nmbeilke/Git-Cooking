@@ -69,6 +69,8 @@ function renderRecipe(recipes) {
     recipeUrl.setAttribute('href', data.url)
     cardFooter.setAttribute('class', 'card-footer');
     recipeFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
+    recipeFooterBtn.setAttribute("onclick", "recipeClicked()")
+
 
     //set content to new elements
     cardTitle.textContent = data.label;
@@ -125,6 +127,8 @@ function renderCocktail(liquid){
     cardContent.setAttribute('class', 'content')
     cardFooter.setAttribute('class', 'card-footer');
     cocktailFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
+    cocktailFooterBtn.setAttribute("onclick", "cocktailClicked()")
+
 
     //set content to new elements
     cardTitle.textContent = cocktail.strDrink;
