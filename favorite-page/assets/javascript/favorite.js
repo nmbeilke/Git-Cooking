@@ -1,6 +1,6 @@
  //I assume there's going to be a favorite button within the container that holds the recipies and the cocktail.
 var favoriteFood = document.querySelector("#recipeContainer")
-var favoriteContainer = document.querySelector("#favoriteContainer")
+// var favoriteContainer = document.getElementById("#favoriteContainer")
 
 
 function recipeClicked() {
@@ -12,7 +12,6 @@ function recipeClicked() {
     console.log(favoriteCombo)
 
     localStorage.setItem("favoriteCombo", JSON.stringify(favoriteCombo))
-    console.log(favoriteCombo)
 
     storeFavorite()
 }
@@ -33,8 +32,8 @@ function cocktailClicked() {
 
 function storeFavorite() {
     var saveFavorite = JSON.parse(localStorage.getItem("favoriteCombo"))
-    if (saveFavorite !== null) {
-        console.log("There's an Array!")
-        document.querySelector(".favoriteContainer").innerHTML = ""
-    }
+        console.log(saveFavorite, "There's an Array!")
+
+        document.getElementById("favoriteContainer").appendChild(saveFavorite)
 }
+

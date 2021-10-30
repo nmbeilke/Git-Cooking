@@ -179,3 +179,4 @@ function renderDrink(liquid){
 }
 
 submitBtn.onclick = fetchRecipe;
+
