@@ -3,7 +3,8 @@ var food;
 var drink;
 var submitBtn = document.querySelector('#submit');
 var foodContainer = document.querySelector('#recipeContainer');
-// var drinkContainer = document.querySelector('#drinkContainer');
+var btnContainerEl = document.querySelector("#btnContainer")
+
 
 function foodSelect() {
     var select = document.querySelector('#recipeSelect');
@@ -48,13 +49,15 @@ function render(food, drinks) {
     foodContainer.innerHTML = '';
     renderRecipe(food)
     renderDrink(drinks)
+    btnContainerEl.removeAttribute("class")
 }
-var recipeFooterBtn = document.createElement('a');
+
+btnContainerEl.setAttribute("onclick", "intialLoad()")
 
 function renderRecipe(recipes) {
     console.log(recipes[0].recipe)
     var data =recipes[0].recipe
-    // foodContainer.innerHTML = '';
+    foodContainer.innerHTML = '';
 
     //create card elements
     var card= document.createElement('div');
@@ -66,8 +69,7 @@ function renderRecipe(recipes) {
     var cardContentContainer = document.createElement('div');
     var cardContent = document.createElement('div');
     var recipeUrl = document.createElement('a');
-    var cardFooter = document.createElement('footer');
-
+    // var cardFooter = document.createElement('footer');
 
 
     //set classes for styling from bulma
@@ -82,19 +84,19 @@ function renderRecipe(recipes) {
     cardContent.setAttribute('class', 'content')
     recipeUrl.setAttribute('href', data.url)
     recipeUrl.setAttribute('target', "_blank")
-    cardFooter.setAttribute('class', 'card-footer');
-    recipeFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
-    recipeFooterBtn.setAttribute("onclick", "recipeClicked()")
+    // cardFooter.setAttribute('class', 'card-footer');
+    // recipeFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
+    // recipeFooterBtn.setAttribute("onclick", "recipeClicked()")
 
 
     //set content to new elements
     cardTitle.textContent = data.label;
     recipeUrl.textContent = data.label;
-    recipeFooterBtn.textContent = "Save to Favorites"
+    // recipeFooterBtn.textContent = "Save to Favorites"
 
 
     //button click goes here
-        // footerBtn.onclick = ;
+    // recipefooterBtn.onclick = recipeClicked();
 
     //append all children to parent containers 
     cardHeader.append(cardTitle);
@@ -102,11 +104,11 @@ function renderRecipe(recipes) {
     cardImgContainer.append(imgFigure);
     cardContent.append(recipeUrl);
     cardContentContainer.append(cardContent);
-    cardFooter.append(recipeFooterBtn);
+    // cardFooter.append(recipeFooterBtn);
 
 
     //append card to foodContainer
-    card.append(cardHeader, cardImgContainer, cardContentContainer, cardFooter);
+    card.append(cardHeader, cardImgContainer, cardContentContainer);
     foodContainer.append(card);
 
 }
@@ -162,7 +164,7 @@ function renderDrink(liquid){
 
     //button click goes here
 
-    // footerBtn.onclick = ;
+    // cocktailFooterBtn.onclick = cocktailClicked();
 
     //append all children to parent containers 
     cardHeader.append(cardTitle);
@@ -179,4 +181,10 @@ function renderDrink(liquid){
 }
 
 submitBtn.onclick = fetchRecipe;
+
+// var btnContainerEl = document.querySelector("#btnContainer")
+// function submitBtn() {
+//     btnContainerEl.setAttribute(display)
+    
+// }
 
