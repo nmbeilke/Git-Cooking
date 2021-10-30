@@ -22,18 +22,32 @@ function fetchRecipe() {
         .then(res => res.json())
         .then(data => {
             var recipeData = data.hits;
-            fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`).then(res => res.json()).then(cocktail => {
-                console.log(cocktail.drinks)
-                var cocktailData = cocktail.drinks;
-                render(recipeData, cocktailData)
+            // fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`) //
+            fetch('https://the-cocktail-db.p.rapidapi.com/filter.php?c=' + drink, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com",
+                    "x-rapidapi-key": "2e52245529msh07cfec66fbb7b81p1371cbjsnc6d6e5003628"
+                }
+            })
+            .then( res => {
+                // console.log(res.json())
+                return res.json();
+              })
+            .then(cocktail => {
+                console.log(cocktail);
+                var randomDrink = cocktail.drinks[Math.floor(Math.random()*cocktail.drinks.length)];
+                console.log(randomDrink);
+                // console.log(cocktail.drinks)
+                // var cocktailData = cocktail.drinks;
+                render(recipeData, randomDrink)
             })
         })
-}
-
+    }
 function render(food, drinks) {
     foodContainer.innerHTML = '';
     renderRecipe(food)
-    renderCocktail(drinks)
+    renderDrink(drinks)
 }
 var recipeFooterBtn = document.createElement('a');
 
@@ -67,6 +81,7 @@ function renderRecipe(recipes) {
     cardContentContainer.setAttribute('class', 'card-content');
     cardContent.setAttribute('class', 'content')
     recipeUrl.setAttribute('href', data.url)
+    recipeUrl.setAttribute('target', "_blank")
     cardFooter.setAttribute('class', 'card-footer');
     recipeFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
     recipeFooterBtn.setAttribute("onclick", "recipeClicked()")
@@ -98,9 +113,9 @@ function renderRecipe(recipes) {
 var cocktailFooterBtn = document.createElement('a');
 
 
-function renderCocktail(liquid){
-    // console.log(liquid)
-    var cocktail = liquid[0] 
+function renderDrink(liquid){
+    console.log(liquid)
+    var cocktail = liquid 
 
     //create card elements
     var card= document.createElement('div');
@@ -111,9 +126,17 @@ function renderCocktail(liquid){
     var cardImg = document.createElement('img');
     var cardContentContainer = document.createElement('div');
     var cardContent = document.createElement('div');
+    var cocktailURL = document.createElement('a');
     var cardFooter = document.createElement('footer');
 
-
+    // var drinkTitleForGoogle = cocktail.strDrink.split(" ")
+    // console.log(drinkTitleForGoogle)
+        let stringUrl = "http://www.google.com/search";
+        let url = new URL(stringUrl);
+        let params = url.searchParams;
+        params.append("q", cocktail.strDrink + " drink recipe");
+    
+    console.log(url.toString());
 
     //set classes for styling from bulma
     card.setAttribute('class', 'card column is-3 is-offset-2');
@@ -125,14 +148,15 @@ function renderCocktail(liquid){
     cardImg.setAttribute('alt', cocktail.strDrink)
     cardContentContainer.setAttribute('class', 'card-content');
     cardContent.setAttribute('class', 'content')
+    cocktailURL.setAttribute('href', url.toString())
+    cocktailURL.setAttribute('target', "_blank")
     cardFooter.setAttribute('class', 'card-footer');
     cocktailFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
     cocktailFooterBtn.setAttribute("onclick", "cocktailClicked()")
 
-
     //set content to new elements
     cardTitle.textContent = cocktail.strDrink;
-    cardContent.textContent = cocktail.strInstructions;
+    cocktailURL.textContent = cocktail.strDrink;
     cocktailFooterBtn.textContent = "Save to Favorites"
 
 
@@ -144,6 +168,7 @@ function renderCocktail(liquid){
     cardHeader.append(cardTitle);
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
+    cardContent.append(cocktailURL);
     cardContentContainer.append(cardContent);
     cardFooter.append(cocktailFooterBtn);
 
@@ -154,3 +179,4 @@ function renderCocktail(liquid){
 }
 
 submitBtn.onclick = fetchRecipe;
+

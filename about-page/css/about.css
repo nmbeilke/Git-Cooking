@@ -66,4 +66,26 @@
   width: 50%;
   z-index: 10;
 }
-/*-------------------------/end Style for main about---------------------------------*/
+/*------ style code for .button----*/
+#github{
+  border:thin;
+  color: snow;
+  background:rgb(73, 73, 73);
+  padding: 10px 10px;
+  margin: 4px 2px;
+  text-align: center;
+  text-decoration: none;
+  cursor:pointer;
+  border-radius: 20px;
+}
+
+#github:hover{
+  box-shadow: 2px 2px 20px rgb(98,98,98);
+  text-decoration: underline;
+}
+
+#github img{
+  max-height: 30px;
+  max-width: 30px;
+}
+/*------ /end style code for .button----*/

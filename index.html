@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./home-page/assets/css/style.css">
-    <title>Recipe-Cocktail Generator</title>
+    <title>Recipe-Cocktail Ideas Generator</title>
 </head>
 
 <body>
@@ -40,14 +40,14 @@
       <!-- title -->
       <div class="container center">
         <h1 class="title">
-            Food and Cocktail Generator
+            Food and Cocktail Ideas Generator
         </h1>
       </div>
 
       <!-- subtitle -->
       <div class="container center">
         <p>
-            Get a <strong>recipe</strong> and a <strong>playlist</strong> pairing by selecting an option below.
+            Get ideas for <strong>food</strong> and <strong>drink</strong> pairings by selecting options below. 
         </p>
       </div>
 
@@ -91,16 +91,16 @@
       <span class="select">
         <select id='drinkSelect' onchange="drinkSelect()">
           <option>Choose a drink category</option>
-          <option value="ordinary-drink">Ordinary Drink</option>
+          <option value="ordinary_drink">Ordinary Drink</option>
           <option value="cocktail">Cocktail</option>
-          <option value="shake">Shake or Float</option>
+          <option value="milk_/_float_/_shake">Shake or Float</option>
           <option value="cocoa">Cocoa</option>
           <option value="shot">Shot</option>
-          <option value="liqueur">Homemade Liqueur</option>
-          <option value="party-drink">Punch or Party Drink</option>
+          <option value="homemade_liqueur">Homemade Liqueur</option>
+          <option value="punch_/_party_drink">Punch or Party Drink</option>
           <option value="beer">Beer</option> 
-          <option value="soda">Soft Drink or Soda</option>
-          <option value="other">Other</option>
+          <option value="soft_drink_/_soda">Soft Drink or Soda</option>
+          <option value="other/unknown">Other</option>
           <option value="random">Random</option>
           </select>
       </span>
@@ -130,6 +130,7 @@
   <script src="./favorite-page/assets/javascript/favorite.js"></script>
   <script src="./about-page/js/about.js"></script>
 
+  <div id="test"></div>
 </body>
 
 </html>
