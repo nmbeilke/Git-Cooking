@@ -22,7 +22,8 @@ function fetchRecipe() {
     fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}&app_id=c802a2ec&app_key=687e250fe13f028dca68ea450a6de6ee&random=true`)
         .then(res => res.json())
         .then(data => {
-            var recipeData = data.hits;
+            var recipeData = data.hits[0].recipe;
+            console.log(recipeData);
             // fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`) //
             fetch('https://the-cocktail-db.p.rapidapi.com/filter.php?c=' + drink, {
                 "method": "GET",
@@ -42,6 +43,12 @@ function fetchRecipe() {
                 // console.log(cocktail.drinks)
                 // var cocktailData = cocktail.drinks;
                 render(recipeData, randomDrink)
+                var savedFoodAndDrinks = {
+                    food: recipeData,
+                    drink: randomDrink
+                }
+                savedComboToLocal(savedFoodAndDrinks)
+                
             })
         })
     }
@@ -52,11 +59,17 @@ function render(food, drinks) {
     btnContainerEl.removeAttribute("class")
 }
 
-btnContainerEl.setAttribute("onclick", "intialLoad()")
+function savedComboToLocal(comboObject){
+    localStorage.setItem("favoriteCombo", JSON.stringify([comboObject]))
+}
+
+btnContainerEl.addEventListener("click", savedComboToLocal)
+
+btnContainerEl.setAttribute("onclick", "initialLoad()")
 
 function renderRecipe(recipes) {
-    console.log(recipes[0].recipe)
-    var data =recipes[0].recipe
+    console.log(recipes)
+    var data =recipes
     foodContainer.innerHTML = '';
 
     //create card elements

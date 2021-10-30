@@ -1,9 +1,12 @@
  //I assume there's going to be a favorite button within the container that holds the recipies and the cocktail.
- //var favoriteFood = document.querySelector("#recipeContainer")
- 
+ var favoriteFood = document.querySelector("#recipeContainer")
  var favoriteContainer = document.querySelector("#favorites")
+//  var favoriteCombo = {
+//     favoriteFood: favoriteFood.innerHTML
+// }
+
  
- function intialLoad(){ 
+ function initialLoad(){ 
     var savedStuff = JSON.parse(localStorage.getItem("favoriteCombo"))
     console.log(savedStuff)
 
@@ -14,28 +17,28 @@
     favoriteContainer.append(y)
  }
 
- intialLoad()
+ initialLoad()
  
-//  function recipeClicked() {
-//     console.log(favoriteFood)
-//      console.log(favoriteFood.innerHTML)
-//      var favoriteCombo = {
-//          favoriteFood: favoriteFood.innerHTML,
-//          favoriteDrink: favoriteFood.children[1]
-//      }
-//      console.log(favoriteCombo)
+ function recipeClicked() {
+    console.log(favoriteFood)
+     console.log(favoriteFood.innerHTML)
+     var favoriteCombo = {
+         favoriteFood: favoriteFood.innerHTML,
+         favoriteDrink: favoriteFood.children[1]
+     }
+     console.log(favoriteCombo)
  
-//      localStorage.setItem("favoriteCombo", JSON.stringify(favoriteCombo))
+     localStorage.setItem("favoriteCombo", JSON.stringify(favoriteCombo))
  
-//      storeFoodFavorite()
-//  }
+     storeFoodFavorite()
+ }
  
 //  function cocktailClicked() {
  
 //      console.log(favoriteFood.innerHTML)
-//      var favoriteCombo = {
-//          favoriteFood: favoriteFood.innerHTML
-//      }
+    //  var favoriteCombo = {
+    //      favoriteFood: favoriteFood.innerHTML
+    //  }
 //      console.log(favoriteCombo)
  
 //      localStorage.setItem("favoriteCombo", JSON.stringify(favoriteCombo))
@@ -44,12 +47,12 @@
 //      storeDrinkFavorite()
 //  }
  
-//  function storeFoodFavorite() {
-//      var saveFoodFavorite = JSON.parse(localStorage.getItem("favoriteCombo"))
-//          console.log(saveFoodFavorite)
+ function storeFoodFavorite() {
+     var saveFoodFavorite = JSON.parse(localStorage.getItem("favoriteCombo"))
+         console.log(saveFoodFavorite)
  
-//          document.getElementById("favorites").appendChild(saveFoodFavorite)
-//  }
+         document.getElementById("favorites").appendChild(saveFoodFavorite)
+ }
 
 //  function storeDrinkFavorite() {
 //     var saveDrinkFavorite = JSON.parse(localStorage.getItem("favoriteCombo"))
