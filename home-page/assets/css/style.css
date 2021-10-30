@@ -25,6 +25,10 @@
     border-radius: 1px;
 }
 
+.hidden {
+    display: none;
+}
+
 /* #hidden{
     display: none;
   } */
