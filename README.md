@@ -2,9 +2,9 @@
 **Work in progress:** An app that uses the Edamam and Cocktail DB APIs to generate recipe and drink pairings.
 
 ## Description
-_Everyone has to eat. And drinks make any meal more fun. You might have go-tos for Sunday brunch at home, date night and dinner parties—or maybe all you eat is instant ramen—but variety is the spice of life. 
+*Everyone has to eat. And drinks make any meal more fun. You might have go-tos for Sunday brunch at home, date night and dinner parties—or maybe all you eat is instant ramen—but variety is the spice of life.*
 
-That’s why we created the Food and Drink Ideas Generator, where anyone can discover new ways to expand their palette and experiment with new flavors (for better or for worse)._
+*That’s why we created the Food and Drink Ideas Generator, where anyone can discover new ways to expand their palette and experiment with new flavors (for better or for worse).*
 
 This project required our group to use everything we’ve learned over the past six units to create a real-world front-end application to be able to showcase to potential employers.
 
