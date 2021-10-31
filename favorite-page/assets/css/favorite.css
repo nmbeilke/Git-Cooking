@@ -24,9 +24,18 @@
     margin-top: 20px;
 }
 
-.card-custom{
-    align-items: center;
-    outline: 10px;
+.customhead{
+    text-align: center;
+    word-wrap: break-word;
+}
+.container-custom{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 /*-----------------Style for Scroll to Top Page Button--------------------------*/
 #myBtn {
