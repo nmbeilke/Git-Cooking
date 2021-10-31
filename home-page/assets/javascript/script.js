@@ -3,8 +3,11 @@ var food;
 var drink;
 var submitBtn = document.querySelector('#submit');
 var foodContainer = document.querySelector('#recipeContainer');
+var drinkSelected = document.querySelector('#drinkSelect').children
+var drinkCategoriesNotRandom = document.getElementsByClassName('category')
 var btnContainerEl = document.querySelector("#btnContainer")
 var saveBtn = document.querySelector("#save")
+
 
 function foodSelect() {
     var select = document.querySelector('#recipeSelect');
@@ -14,8 +17,21 @@ function foodSelect() {
 
 function drinkSelect() {
     var selectDrink = document.querySelector('#drinkSelect');
-    drink = selectDrink.options[selectDrink.selectedIndex].value;
-    console.log(drink);
+    drink = selectDrink.options[selectDrink.selectedIndex].value;  
+    var drinkSelection = drink
+    console.log(drinkSelection)
+
+if (drinkSelection === "random") { 
+    function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+        var randomNumber = getRandomInt(10)
+        console.log(randomNumber)
+        var newCategory = drinkCategoriesNotRandom[randomNumber].value
+        console.log(newCategory)
+        drink = newCategory
+        console.log(drink)
+    }
 }
 
 function fetchRecipe() {
@@ -55,6 +71,7 @@ function render(food, drinks) {
     btnContainerEl.removeAttribute("class")
 }
 
+var recipeBtn = document.createElement('a');
 
 var savedComboToLocal = function (food, drink) {
 
@@ -75,13 +92,6 @@ var savedComboToLocal = function (food, drink) {
 
 }
 
-
-
-
-
-
-
-
 function renderRecipe(recipes) {
     console.log(recipes)
     var data = recipes
@@ -97,8 +107,6 @@ function renderRecipe(recipes) {
     var cardContentContainer = document.createElement('div');
     var cardContent = document.createElement('div');
     var recipeUrl = document.createElement('a');
-    // var cardFooter = document.createElement('footer');
-
 
     //set classes for styling from bulma
     card.setAttribute('class', 'card column is-3 is-offset-2');
@@ -110,6 +118,12 @@ function renderRecipe(recipes) {
     cardImg.setAttribute('alt', data.label)
     cardContentContainer.setAttribute('class', 'card-content');
     cardContent.setAttribute('class', 'content')
+
+    cardFooter.setAttribute('class', 'card-footer');
+    recipeBtn.setAttribute('class', 'card-footer-item button is-primary is-light');
+    recipeBtn.setAttribute('href', data.url)
+    recipeBtn.setAttribute('target', "_blank")
+
     recipeUrl.setAttribute('href', data.url)
     recipeUrl.setAttribute('target', "_blank")
     // cardFooter.setAttribute('class', 'card-footer');
@@ -117,10 +131,15 @@ function renderRecipe(recipes) {
     // recipeFooterBtn.setAttribute("onclick", "recipeClicked()")
 
 
+
     //set content to new elements
     cardTitle.textContent = data.label;
+
+    recipeBtn.textContent = "View Recipe"
+
     recipeUrl.textContent = data.label;
     // recipeFooterBtn.textContent = "Save to Favorites"
+
 
 
     //button click goes here
@@ -130,9 +149,9 @@ function renderRecipe(recipes) {
     cardHeader.append(cardTitle);
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
-    cardContent.append(recipeUrl);
     cardContentContainer.append(cardContent);
-    // cardFooter.append(recipeFooterBtn);
+
+    cardFooter.append(recipeBtn);
 
 
     //append card to foodContainer
@@ -140,7 +159,7 @@ function renderRecipe(recipes) {
     foodContainer.append(card);
 
 }
-var cocktailFooterBtn = document.createElement('a');
+var cocktailBtn = document.createElement('a');
 
 
 function renderDrink(liquid) {
@@ -156,7 +175,6 @@ function renderDrink(liquid) {
     var cardImg = document.createElement('img');
     var cardContentContainer = document.createElement('div');
     var cardContent = document.createElement('div');
-    var cocktailURL = document.createElement('a');
     var cardFooter = document.createElement('footer');
 
     // var drinkTitleForGoogle = cocktail.strDrink.split(" ")
@@ -178,16 +196,14 @@ function renderDrink(liquid) {
     cardImg.setAttribute('alt', cocktail.strDrink)
     cardContentContainer.setAttribute('class', 'card-content');
     cardContent.setAttribute('class', 'content')
-    cocktailURL.setAttribute('href', url.toString())
-    cocktailURL.setAttribute('target', "_blank")
     cardFooter.setAttribute('class', 'card-footer');
-    cocktailFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
-    cocktailFooterBtn.setAttribute("onclick", "cocktailClicked()")
+    cocktailBtn.setAttribute('class', 'card-footer-item button is-primary is-light');
+    cocktailBtn.setAttribute('href', url.toString())
+    cocktailBtn.setAttribute('target', "_blank")
 
     //set content to new elements
     cardTitle.textContent = cocktail.strDrink;
-    cocktailURL.textContent = cocktail.strDrink;
-    cocktailFooterBtn.textContent = "Save to Favorites"
+    cocktailBtn.textContent = "View Recipe"
 
 
     //button click goes here
@@ -198,9 +214,8 @@ function renderDrink(liquid) {
     cardHeader.append(cardTitle);
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
-    cardContent.append(cocktailURL);
     cardContentContainer.append(cardContent);
-    cardFooter.append(cocktailFooterBtn);
+    cardFooter.append(cocktailBtn);
 
     //append card to foodContainer
     card.append(cardHeader, cardImgContainer, cardContentContainer, cardFooter);
