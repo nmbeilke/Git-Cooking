@@ -24,7 +24,7 @@ function fetchRecipe() {
         .then(data => {
             var recipeData = data.hits[0].recipe;
             console.log(recipeData);
-            // fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`) //
+
             fetch('https://the-cocktail-db.p.rapidapi.com/filter.php?c=' + drink, {
                 "method": "GET",
                 "headers": {
@@ -33,15 +33,14 @@ function fetchRecipe() {
                 }
             })
                 .then(res => {
-                    // console.log(res.json())
+
                     return res.json();
                 })
                 .then(cocktail => {
                     console.log(cocktail);
                     var randomDrink = cocktail.drinks[Math.floor(Math.random() * cocktail.drinks.length)];
                     console.log(randomDrink);
-                    // console.log(cocktail.drinks)
-                    // var cocktailData = cocktail.drinks;
+
                     render(recipeData, randomDrink)
 
                     savedComboToLocal(recipeData, randomDrink);
@@ -81,7 +80,7 @@ var savedComboToLocal = function (food, drink) {
 
 
 
-// btnContainerEl.setAttribute("onclick", "initialLoad()")
+
 
 function renderRecipe(recipes) {
     console.log(recipes)
