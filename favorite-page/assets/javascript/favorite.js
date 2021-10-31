@@ -28,5 +28,3 @@ function initialLoad() {
     // favoritesEl.append(y)
 }
 initialLoad()
-
-

@@ -80,12 +80,12 @@ var savedComboToLocal = function (food, drink) {
         drink: drink
     }
 
-    var getCurentSaved = JSON.parse(localStorage.getItem("favoriteCombo")) || [];
+    var getCurrentSaved = JSON.parse(localStorage.getItem("favoriteCombo")) || [];
 
     function saveFunc(event) {
 
-        getCurentSaved.push(savedFoodAndDrinks);
-        localStorage.setItem("favoriteCombo", JSON.stringify(getCurentSaved));
+        getCurrentSaved.push(savedFoodAndDrinks);
+        localStorage.setItem("favoriteCombo", JSON.stringify(getCurrentSaved));
     }
 
     saveBtn.addEventListener("click", saveFunc)
@@ -106,7 +106,7 @@ function renderRecipe(recipes) {
     var cardImg = document.createElement('img');
     var cardContentContainer = document.createElement('div');
     var cardContent = document.createElement('div');
-    var recipeUrl = document.createElement('a');
+    var cardFooter = document.createElement('footer');
 
     //set classes for styling from bulma
     card.setAttribute('class', 'card column is-3 is-offset-2');
@@ -118,47 +118,28 @@ function renderRecipe(recipes) {
     cardImg.setAttribute('alt', data.label)
     cardContentContainer.setAttribute('class', 'card-content');
     cardContent.setAttribute('class', 'content')
-
     cardFooter.setAttribute('class', 'card-footer');
     recipeBtn.setAttribute('class', 'card-footer-item button is-primary is-light');
     recipeBtn.setAttribute('href', data.url)
     recipeBtn.setAttribute('target', "_blank")
 
-    recipeUrl.setAttribute('href', data.url)
-    recipeUrl.setAttribute('target', "_blank")
-    // cardFooter.setAttribute('class', 'card-footer');
-    // recipeFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
-    // recipeFooterBtn.setAttribute("onclick", "recipeClicked()")
-
-
-
     //set content to new elements
     cardTitle.textContent = data.label;
-
     recipeBtn.textContent = "View Recipe"
-
-    recipeUrl.textContent = data.label;
-    // recipeFooterBtn.textContent = "Save to Favorites"
-
-
-
-    //button click goes here
-    // recipefooterBtn.onclick = recipeClicked();
 
     //append all children to parent containers 
     cardHeader.append(cardTitle);
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
     cardContentContainer.append(cardContent);
-
     cardFooter.append(recipeBtn);
 
-
     //append card to foodContainer
-    card.append(cardHeader, cardImgContainer, cardContentContainer);
+    card.append(cardHeader, cardImgContainer, cardContentContainer, cardFooter);
     foodContainer.append(card);
 
 }
+
 var cocktailBtn = document.createElement('a');
 
 
@@ -177,8 +158,7 @@ function renderDrink(liquid) {
     var cardContent = document.createElement('div');
     var cardFooter = document.createElement('footer');
 
-    // var drinkTitleForGoogle = cocktail.strDrink.split(" ")
-    // console.log(drinkTitleForGoogle)
+   
     let stringUrl = "http://www.google.com/search";
     let url = new URL(stringUrl);
     let params = url.searchParams;
@@ -225,9 +205,4 @@ function renderDrink(liquid) {
 
 submitBtn.onclick = fetchRecipe;
 
-// var btnContainerEl = document.querySelector("#btnContainer")
-// function submitBtn() {
-//     btnContainerEl.setAttribute(display)
-
-// }
 
