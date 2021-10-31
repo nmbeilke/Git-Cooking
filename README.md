@@ -13,7 +13,7 @@ This project required our group to use everything we’ve learned over the past 
 “As a user who wants to be inspired to cook new things, I want to use an app that will give me recipe and drink ideas to discover new pairings, so that cooking is more fun. And I want to save my pairings so that I can reference them later.”
 
 ## Requirements
-We were given these requirements:
+We were given the following requirements. Projects must:
 
 * Use a CSS framework other than Bootstrap.
 * Be deployed to GitHub Pages.
@@ -50,5 +50,12 @@ Link to live site: https://nmbeilke.github.io/recipe-music-generator/
 ## Contributors 
 Stephanie Apodaca, Nicole Beilke, Edgar Fernandez, Parisa Ostovari
 ## Credits
-  
+
+**APIs:**
+Cocktail DB: https://www.thecocktaildb.com/
+Edamam: https://developer.edamam.com
+
+**Framework:**
+Bulma: https://bulma.io
+
 Assignment from The Coding Boot Camp at UC San Diego Extension in Partnership With Trilogy Education Services, LLC, Full Stack Part-Time Flex, September 2021 Cohort
