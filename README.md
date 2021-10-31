@@ -2,9 +2,10 @@
 **Work in progress:** An app that uses the Edamam and Cocktail DB APIs to generate recipe and drink pairings.
 
 ## Description
-*Everyone has to eat. And drinks make any meal more fun. You might have go-tos for Sunday brunch at home, date night and dinner parties—or maybe all you eat is instant ramen—but variety is the spice of life.*
+**Everyone has to eat. And drinks make any meal more fun. You might have go-tos for Sunday brunch at home, date night and dinner parties—or maybe all you eat is instant ramen—but variety is the spice of life.**
 
-*That’s why we created the Food and Drink Ideas Generator, where anyone can discover new ways to expand their palette and experiment with new flavors (for better or for worse).*
+**That’s why we created the Food and Drink Ideas Generator, where anyone can discover new ways to expand their palette and experiment with new flavors (for better or for worse).**
+
 
 This project required our group to use everything we’ve learned over the past six units to create a real-world front-end application to be able to showcase to potential employers.
 
@@ -25,19 +26,20 @@ We were given these requirements:
 * Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
 * Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
   
-- **What was your motivation?**
+## Process
+**What was your motivation?**
 Our motivation was to provide an inspirational tool to users to discover new food and drink ideas. 
   
-- **Why did you build this project?**
+**Why did you build this project?**
 We built this project to add our first large project to our portfolios, learn how to work collaboratively on an app, get more comfortable with APIs, Javascript logic and a new framework.
 
-- **What problem does it solve?**
+**What problem does it solve?**
 This allows users to solve the problem of monotony in their menus, help them make the hard desicion about what to make, and to help them try new foods and drinks.
 
-- **What did you learn?**
+**What did you learn?**
 We learned a lot about saving to local storage, manipulating API data and good API selection.
 
-- **What challenges did you encounter?**
+**What challenges did you encounter?**
 We encountered challenges with the APIs themselves, CORS issues, GitHub holdups and difficulty figuring out local storage. 
 
 ## Link
