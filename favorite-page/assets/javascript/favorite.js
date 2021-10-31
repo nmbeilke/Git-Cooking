@@ -39,6 +39,9 @@ function initialLoad() {
         drinkImgLink.append(drinkImgDisplay)
         removeDrinkContainer.append(removeFavoriteDrink)
         
+
+        drinkFavoritedContainer.append(drinkFavoritedHeader,drinkImageContainer,removeDrinkContainer)
+
         //styling for the food containers
         var foodFavoritedContainer = document.createElement("div")
 
@@ -85,8 +88,6 @@ function initialLoad() {
         favoritesEl.append(drinkFavoritedContainer, foodFavoritedContainer)
         
     }
-
-
     // var savedStuff = JSON.parse(localStorage.getItem("favoriteCombo"))
     // console.log(savedStuff)
 
@@ -97,4 +98,9 @@ function initialLoad() {
 
     // favoritesEl.append(y)
 }
+
+// (removeFavoriteFood).click(function(){ 
+// 	$(this).parent().remove() 
+// }); 
+
 initialLoad()
