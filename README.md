@@ -52,10 +52,10 @@ Stephanie Apodaca, Nicole Beilke, Edgar Fernandez, Parisa Ostovari
 ## Credits
 
 **APIs:**
-Cocktail DB: https://www.thecocktaildb.com/
-Edamam: https://developer.edamam.com
+* Cocktail DB: https://www.thecocktaildb.com/
+* Edamam: https://developer.edamam.com
 
 **Framework:**
-Bulma: https://bulma.io
+* Bulma: https://bulma.io
 
 Assignment from The Coding Boot Camp at UC San Diego Extension in Partnership With Trilogy Education Services, LLC, Full Stack Part-Time Flex, September 2021 Cohort
