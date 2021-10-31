@@ -4,7 +4,7 @@ var drink;
 var submitBtn = document.querySelector('#submit');
 var foodContainer = document.querySelector('#recipeContainer');
 var btnContainerEl = document.querySelector("#btnContainer")
-
+var saveBtn = document.querySelector("#save")
 
 function foodSelect() {
     var select = document.querySelector('#recipeSelect');
@@ -22,8 +22,9 @@ function fetchRecipe() {
     fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}&app_id=c802a2ec&app_key=687e250fe13f028dca68ea450a6de6ee&random=true`)
         .then(res => res.json())
         .then(data => {
-            var recipeData = data.hits;
-            // fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`) //
+            var recipeData = data.hits[0].recipe;
+            console.log(recipeData);
+
             fetch('https://the-cocktail-db.p.rapidapi.com/filter.php?c=' + drink, {
                 "method": "GET",
                 "headers": {
@@ -31,20 +32,22 @@ function fetchRecipe() {
                     "x-rapidapi-key": "2e52245529msh07cfec66fbb7b81p1371cbjsnc6d6e5003628"
                 }
             })
-            .then( res => {
-                // console.log(res.json())
-                return res.json();
-              })
-            .then(cocktail => {
-                console.log(cocktail);
-                var randomDrink = cocktail.drinks[Math.floor(Math.random()*cocktail.drinks.length)];
-                console.log(randomDrink);
-                // console.log(cocktail.drinks)
-                // var cocktailData = cocktail.drinks;
-                render(recipeData, randomDrink)
-            })
+                .then(res => {
+
+                    return res.json();
+                })
+                .then(cocktail => {
+                    console.log(cocktail);
+                    var randomDrink = cocktail.drinks[Math.floor(Math.random() * cocktail.drinks.length)];
+                    console.log(randomDrink);
+
+                    render(recipeData, randomDrink)
+
+                    savedComboToLocal(recipeData, randomDrink);
+
+                })
         })
-    }
+}
 function render(food, drinks) {
     foodContainer.innerHTML = '';
     renderRecipe(food)
@@ -52,18 +55,43 @@ function render(food, drinks) {
     btnContainerEl.removeAttribute("class")
 }
 
-btnContainerEl.setAttribute("onclick", "intialLoad()")
+
+var savedComboToLocal = function (food, drink) {
+
+    var savedFoodAndDrinks = {
+        food: food,
+        drink: drink
+    }
+
+    var getCurentSaved = JSON.parse(localStorage.getItem("favoriteCombo")) || [];
+
+    function saveFunc(event) {
+
+        getCurentSaved.push(savedFoodAndDrinks);
+        localStorage.setItem("favoriteCombo", JSON.stringify(getCurentSaved));
+    }
+
+    saveBtn.addEventListener("click", saveFunc)
+
+}
+
+
+
+
+
+
+
 
 function renderRecipe(recipes) {
-    console.log(recipes[0].recipe)
-    var data =recipes[0].recipe
+    console.log(recipes)
+    var data = recipes
     foodContainer.innerHTML = '';
 
     //create card elements
-    var card= document.createElement('div');
+    var card = document.createElement('div');
     var cardHeader = document.createElement('header');
     var cardTitle = document.createElement('p');
-    var cardImgContainer= document.createElement('div');
+    var cardImgContainer = document.createElement('div');
     var imgFigure = document.createElement('figure');
     var cardImg = document.createElement('img');
     var cardContentContainer = document.createElement('div');
@@ -115,15 +143,15 @@ function renderRecipe(recipes) {
 var cocktailFooterBtn = document.createElement('a');
 
 
-function renderDrink(liquid){
+function renderDrink(liquid) {
     console.log(liquid)
-    var cocktail = liquid 
+    var cocktail = liquid
 
     //create card elements
-    var card= document.createElement('div');
+    var card = document.createElement('div');
     var cardHeader = document.createElement('header');
     var cardTitle = document.createElement('p');
-    var cardImgContainer= document.createElement('div');
+    var cardImgContainer = document.createElement('div');
     var imgFigure = document.createElement('figure');
     var cardImg = document.createElement('img');
     var cardContentContainer = document.createElement('div');
@@ -133,11 +161,11 @@ function renderDrink(liquid){
 
     // var drinkTitleForGoogle = cocktail.strDrink.split(" ")
     // console.log(drinkTitleForGoogle)
-        let stringUrl = "http://www.google.com/search";
-        let url = new URL(stringUrl);
-        let params = url.searchParams;
-        params.append("q", cocktail.strDrink + " drink recipe");
-    
+    let stringUrl = "http://www.google.com/search";
+    let url = new URL(stringUrl);
+    let params = url.searchParams;
+    params.append("q", cocktail.strDrink + " drink recipe");
+
     console.log(url.toString());
 
     //set classes for styling from bulma
@@ -185,6 +213,6 @@ submitBtn.onclick = fetchRecipe;
 // var btnContainerEl = document.querySelector("#btnContainer")
 // function submitBtn() {
 //     btnContainerEl.setAttribute(display)
-    
+
 // }
 
