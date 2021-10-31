@@ -1,13 +1,12 @@
 # recipe-music-generator
 **Work in progress:** An app that uses the Edamam and Cocktail DB APIs to generate recipe and drink pairings.
 
+This project required our group to use everything we’ve learned over the past six units to create a real-world front-end application to be able to showcase to potential employers.
+
 ## Description
 **Everyone has to eat. And drinks make any meal more fun. You might have go-tos for Sunday brunch at home, date night and dinner parties—or maybe all you eat is instant ramen—but variety is the spice of life.**
 
 **That’s why we created the Food and Drink Ideas Generator, where anyone can discover new ways to expand their palette and experiment with new flavors (for better or for worse).**
-
-
-This project required our group to use everything we’ve learned over the past six units to create a real-world front-end application to be able to showcase to potential employers.
 
 ## User Story
 “As a user who wants to be inspired to cook new things, I want to use an app that will give me recipe and drink ideas to discover new pairings, so that cooking is more fun. And I want to save my pairings so that I can reference them later.”
