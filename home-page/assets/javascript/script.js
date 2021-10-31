@@ -3,6 +3,8 @@ var food;
 var drink;
 var submitBtn = document.querySelector('#submit');
 var foodContainer = document.querySelector('#recipeContainer');
+var drinkSelected = document.querySelector('#drinkSelect').children
+var drinkCategoriesNotRandom = document.getElementsByClassName('category')
 // var drinkContainer = document.querySelector('#drinkContainer');
 
 function foodSelect() {
@@ -13,8 +15,21 @@ function foodSelect() {
 
 function drinkSelect() {
     var selectDrink = document.querySelector('#drinkSelect');
-    drink = selectDrink.options[selectDrink.selectedIndex].value;
-    console.log(drink);
+    drink = selectDrink.options[selectDrink.selectedIndex].value;  
+    var drinkSelection = drink
+    console.log(drinkSelection)
+
+if (drinkSelection === "random") { 
+    function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+        var randomNumber = getRandomInt(10)
+        console.log(randomNumber)
+        var newCategory = drinkCategoriesNotRandom[randomNumber].value
+        console.log(newCategory)
+        drink = newCategory
+        console.log(drink)
+    }
 }
 
 function fetchRecipe() {
@@ -22,7 +37,7 @@ function fetchRecipe() {
         .then(res => res.json())
         .then(data => {
             var recipeData = data.hits;
-            // fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`) //
+
             fetch('https://the-cocktail-db.p.rapidapi.com/filter.php?c=' + drink, {
                 "method": "GET",
                 "headers": {
@@ -31,15 +46,12 @@ function fetchRecipe() {
                 }
             })
             .then( res => {
-                // console.log(res.json())
                 return res.json();
               })
             .then(cocktail => {
                 console.log(cocktail);
                 var randomDrink = cocktail.drinks[Math.floor(Math.random()*cocktail.drinks.length)];
                 console.log(randomDrink);
-                // console.log(cocktail.drinks)
-                // var cocktailData = cocktail.drinks;
                 render(recipeData, randomDrink)
             })
         })
@@ -49,7 +61,7 @@ function render(food, drinks) {
     renderRecipe(food)
     renderDrink(drinks)
 }
-var recipeFooterBtn = document.createElement('a');
+var recipeBtn = document.createElement('a');
 
 function renderRecipe(recipes) {
     console.log(recipes[0].recipe)
@@ -65,7 +77,6 @@ function renderRecipe(recipes) {
     var cardImg = document.createElement('img');
     var cardContentContainer = document.createElement('div');
     var cardContent = document.createElement('div');
-    var recipeUrl = document.createElement('a');
     var cardFooter = document.createElement('footer');
 
 
@@ -80,17 +91,15 @@ function renderRecipe(recipes) {
     cardImg.setAttribute('alt', data.label)
     cardContentContainer.setAttribute('class', 'card-content');
     cardContent.setAttribute('class', 'content')
-    recipeUrl.setAttribute('href', data.url)
-    recipeUrl.setAttribute('target', "_blank")
     cardFooter.setAttribute('class', 'card-footer');
-    recipeFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
-    recipeFooterBtn.setAttribute("onclick", "recipeClicked()")
+    recipeBtn.setAttribute('class', 'card-footer-item button is-primary is-light');
+    recipeBtn.setAttribute('href', data.url)
+    recipeBtn.setAttribute('target', "_blank")
 
 
     //set content to new elements
     cardTitle.textContent = data.label;
-    recipeUrl.textContent = data.label;
-    recipeFooterBtn.textContent = "Save to Favorites"
+    recipeBtn.textContent = "View Recipe"
 
 
     //button click goes here
@@ -100,9 +109,8 @@ function renderRecipe(recipes) {
     cardHeader.append(cardTitle);
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
-    cardContent.append(recipeUrl);
     cardContentContainer.append(cardContent);
-    cardFooter.append(recipeFooterBtn);
+    cardFooter.append(recipeBtn);
 
 
     //append card to foodContainer
@@ -110,7 +118,7 @@ function renderRecipe(recipes) {
     foodContainer.append(card);
 
 }
-var cocktailFooterBtn = document.createElement('a');
+var cocktailBtn = document.createElement('a');
 
 
 function renderDrink(liquid){
@@ -126,7 +134,6 @@ function renderDrink(liquid){
     var cardImg = document.createElement('img');
     var cardContentContainer = document.createElement('div');
     var cardContent = document.createElement('div');
-    var cocktailURL = document.createElement('a');
     var cardFooter = document.createElement('footer');
 
     // var drinkTitleForGoogle = cocktail.strDrink.split(" ")
@@ -148,16 +155,14 @@ function renderDrink(liquid){
     cardImg.setAttribute('alt', cocktail.strDrink)
     cardContentContainer.setAttribute('class', 'card-content');
     cardContent.setAttribute('class', 'content')
-    cocktailURL.setAttribute('href', url.toString())
-    cocktailURL.setAttribute('target', "_blank")
     cardFooter.setAttribute('class', 'card-footer');
-    cocktailFooterBtn.setAttribute('class', 'card-footer-item button is-primary');
-    cocktailFooterBtn.setAttribute("onclick", "cocktailClicked()")
+    cocktailBtn.setAttribute('class', 'card-footer-item button is-primary is-light');
+    cocktailBtn.setAttribute('href', url.toString())
+    cocktailBtn.setAttribute('target', "_blank")
 
     //set content to new elements
     cardTitle.textContent = cocktail.strDrink;
-    cocktailURL.textContent = cocktail.strDrink;
-    cocktailFooterBtn.textContent = "Save to Favorites"
+    cocktailBtn.textContent = "View Recipe"
 
 
     //button click goes here
@@ -168,9 +173,8 @@ function renderDrink(liquid){
     cardHeader.append(cardTitle);
     imgFigure.append(cardImg);
     cardImgContainer.append(imgFigure);
-    cardContent.append(cocktailURL);
     cardContentContainer.append(cardContent);
-    cardFooter.append(cocktailFooterBtn);
+    cardFooter.append(cocktailBtn);
 
     //append card to foodContainer
     card.append(cardHeader, cardImgContainer, cardContentContainer, cardFooter);
