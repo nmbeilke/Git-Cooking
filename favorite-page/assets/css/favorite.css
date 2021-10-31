@@ -20,7 +20,14 @@
 .button {
     margin: 2px;
 }
+.column-custom{
+    margin-top: 20px;
+}
 
+.card-custom{
+    align-items: center;
+    outline: 10px;
+}
 /*-----------------Style for Scroll to Top Page Button--------------------------*/
 #myBtn {
     display: none; /* Hidden by default */
