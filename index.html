@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./home-page/assets/css/style.css">
-    <title>Recipe-Cocktail Generator</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Shrikhand">
+  <link rel="stylesheet" href="./home-page/assets/css/style.css">
+  <title>Git Cooking</title>
 </head>
 
 <body>
@@ -33,27 +36,25 @@
         </div>
       </nav>
     </div>
-  
+
     <!-- header -->
     <div class="hero-body mt-0">
 
       <!-- title -->
       <div class="container center">
-        <h1 class="title">
-            Food and Cocktail Generator
-        </h1>
-      </div>
+        <div class="title" style="font-family: 'Shrikhand', serif;"><h1>Git Cooking!</h1></div>
+        </div>
 
       <!-- subtitle -->
       <div class="container center">
         <p>
-            Get a <strong>recipe</strong> and a <strong>playlist</strong> pairing by selecting an option below.
+          Get ideas for <strong>food</strong> and <strong>drink</strong> pairings by selecting options below with our food-drink generator.
         </p>
       </div>
 
     </div>
   </section>
-  
+
   <!-- dropdown -->
   <div class="field center">
 
@@ -61,11 +62,25 @@
     <p class="control has-icons-left">
       <span class="select">
         <select id="recipeSelect" onchange="foodSelect()">
-            <option>Select a Cuisine</option>
-            <option value="chicken">Chicken recipes</option>
-            <option value="steak">Steak recipes</option>
-            <option value="other">Cuisine 3</option>
-          </select>
+          <option value="esc">Select a Cuisine</option>
+          <option value="american">American</option>
+          <option value="asian">Asian</option>
+          <option value="british">British</option>
+          <option value="caribbean">Caribbean</option>
+          <option value="central-europe">Central Europe</option>
+          <option value="chinese">Chinese</option>
+          <option value="eastern-europe">Nordic</option>
+          <option value="french">French</option>
+          <option value="indian">Indian</option>
+          <option value="italian">Italian</option>
+          <option value="japanese">Japanese</option>
+          <option value="kosher">Kosher</option>
+          <option value="mediterranean">Mediterranean</option>
+          <option value="middle-eastern">Middle Eastern</option>
+          <option value="nordic">Nordic</option>
+          <option value="south-east-asian">South East Asian</option>
+          <option value="food">Random</option>
+        </select>
       </span>
       <span class="icon is-left">
         <i class="fa fa-cutlery fa-border" aria-hidden="true" style="color: rgb(124, 124, 124);"></i>
@@ -76,10 +91,20 @@
     <p class="control has-icons-left">
       <span class="select">
         <select id='drinkSelect' onchange="drinkSelect()">
-            <option>Random Cocktail?</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
+        <option value="esc">Select a Drink</option>
+          <option class="category" value="ordinary_drink">Ordinary Drink</option>
+          <option class="category" value="cocktail">Cocktail</option>
+          <option class="category" value="milk_/_float_/_shake">Shake or Float</option>
+          <option class="category" value="cocoa">Cocoa</option>
+          <option class="category" value="shot">Shot</option>
+          <option class="category" value="homemade_liqueur">Homemade Liqueur</option>
+          <option class="category" value="punch_/_party_drink">Punch or Party Drink</option>
+          <option class="category" value="beer">Beer</option> 
+          <option class="category" value="soft_drink_/_soda">Soft Drink or Soda</option>
+          <option class="category" value="other/unknown">Other</option>
+          <option class="ignore" value="random">Random</option>
+        </select>
+
       </span>
       <span class="icon is-small is-left">
         <i class="fa fa-glass fa-border" aria-hidden="true" style="color: rgb(124, 124, 124);"></i>
@@ -87,22 +112,6 @@
     </p>
 
   </div>
-
-
-<!-- to display the recipe -->
-<!-- https://bulma.io/documentation/components/card/ -->
-  <!-- <div class="card">
-    <div class="card-image">
-      <figure class="image is-4by3">
-        <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-      </figure>
-    </div>
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-    </div>
-  </div> -->
 
   <!-- submit/cancel buttons -->
   <div class="field center">
@@ -116,17 +125,20 @@
 
   <hr>
 
-  <div id="recipeContainer">
-    <div id="foodContainer"></div>
-    <div id="drinkContainer"></div>
-    <button id="save">favorite</button>
+  <div id="recipeContainer" class="columns"></div>
+
+  <div class="field center">
+    <div class="hidden" id="btnContainer">
+      <button class="button is-primary" id='save'>
+        Save Recipe Pairing
+      </button>
+    </div>
   </div>
+
 
   <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
   <script src="./home-page/assets/javascript/script.js"></script>
-  <script src="./favorite-page/assets/javascript/favorite.js"></script>
   <script src="./about-page/js/about.js"></script>
-
 </body>
 
 </html>
