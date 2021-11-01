@@ -16,22 +16,22 @@ function initialLoad() {
         var drinkContent = document.createElement('div')
 
         drinkFavoritesContainer.setAttribute('class', 'card is-3')
-        drinkFavoritesHeader.setAttribute('class', 'card-header custom-head' )
-        drinkTitle.setAttribute ('class', 'card-header-title')
-        drinkImgContainer.setAttribute ("class", 'card-image')
+        drinkFavoritesHeader.setAttribute('class', 'card-header custom-head')
+        drinkTitle.setAttribute('class', 'card-header-title')
+        drinkImgContainer.setAttribute("class", 'card-image')
         drinkImgDisplay.setAttribute('class', 'image is-128x128')
         drinkImgDisplay.setAttribute('src', drinkImgData)
         drinkImgDisplay.setAttribute('alt', drinkImgData)
         drinkContentContainer.setAttribute('class', 'card-content')
         drinkContent.setAttribute('class', 'content')
-       
+
         drinkTitle.textContent = getSavedLocal[i].drink.strDrink
-       
+
         drinkFavoritesHeader.append(drinkTitle)
         drinkImgLink.append(drinkImgDisplay)
         drinkImgContainer.append(drinkImgLink)
         drinkContentContainer.append(drinkContent)
-        
+
 
         drinkFavoritesContainer.append(drinkFavoritesHeader, drinkImgContainer, drinkContentContainer)
 
@@ -49,11 +49,11 @@ function initialLoad() {
         var foodContentContainer = document.createElement('div');
         var foodContent = document.createElement('div');
 
-       
-        
+
+
         foodFavoritesContainer.setAttribute('class', 'card is-3 ')
-        foodFavoritesHeader.setAttribute ('class', 'card-header custom-head' )
-        foodTitle.setAttribute ('class', 'card-header-title')
+        foodFavoritesHeader.setAttribute('class', 'card-header custom-head')
+        foodTitle.setAttribute('class', 'card-header-title')
         foodImageContainer.setAttribute('class', 'card-image')
         foodImgLink.setAttribute('href', foodImgUrl)
         foodImgLink.setAttribute('target', '_blank')
@@ -62,29 +62,29 @@ function initialLoad() {
         foodImgDisplay.setAttribute('alt', foodImgData)
         foodContentContainer.setAttribute('class', 'card-content')
         foodContent.setAttribute('class', 'content')
-        
+
         foodTitle.textContent = getSavedLocal[i].food.label;
 
         foodFavoritesHeader.append(foodTitle)
         foodImgLink.append(foodImgDisplay)
         foodImageContainer.append(foodImgLink)
         foodContentContainer.append(foodContent)
-        
+
         foodFavoritesContainer.append(foodFavoritesHeader, foodImageContainer, foodContentContainer)
-        
+
         //overall appending for the food and drinks
         favoritesEl.append(drinkFavoritesContainer, foodFavoritesContainer)
-        
+
     }
 
 }
 
 // clear button
-function clear () {
+function clear() {
     localStorage.clear();
     window.location.reload();
-  }
-document.querySelector('#clear').onclick = clear; 
+}
+document.querySelector('#clear').onclick = clear;
 
 
 initialLoad()
