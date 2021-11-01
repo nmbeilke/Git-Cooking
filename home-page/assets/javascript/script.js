@@ -92,6 +92,19 @@ var savedComboToLocal = function (food, drink) {
     var getCurrentSaved = JSON.parse(localStorage.getItem("favoriteCombo")) || [];
 
     function saveFunc(event) {
+        (function(){
+              show = function(){
+                saveBtn.setAttribute("class", "button is-primary is-loading")
+                setTimeout(hide, 1000); // 1 seconds
+              },
+        
+              hide = function(){
+                saveBtn.setAttribute("disabled", "disabled")
+                saveBtn.setAttribute("class", "button is-primary")
+              };
+        
+            show();
+          })();
 
         getCurrentSaved.push(savedFoodAndDrinks);
         localStorage.setItem("favoriteCombo", JSON.stringify(getCurrentSaved));
@@ -172,8 +185,7 @@ function renderDrink(liquid) {
     let url = new URL(stringUrl);
     let params = url.searchParams;
     params.append("q", cocktail.strDrink + " drink recipe");
-
-    console.log(url.toString());
+    var drinkURL = url.toString()
 
     //set classes for styling from bulma
     card.setAttribute('class', 'card column is-3 is-offset-2');
@@ -187,7 +199,7 @@ function renderDrink(liquid) {
     cardContent.setAttribute('class', 'content')
     cardFooter.setAttribute('class', 'card-footer');
     cocktailBtn.setAttribute('class', 'card-footer-item button is-primary is-light');
-    cocktailBtn.setAttribute('href', url.toString())
+    cocktailBtn.setAttribute('href', drinkURL)
     cocktailBtn.setAttribute('target', "_blank")
 
     //set content to new elements
