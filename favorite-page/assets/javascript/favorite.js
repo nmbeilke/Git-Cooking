@@ -1,106 +1,90 @@
-var getSavedLocal = JSON.parse(localStorage.getItem("favoriteCombo"));
-
-var favoritesEl = document.querySelector("#favorites");
-
+var getSavedLocal = JSON.parse(localStorage.getItem('favoriteCombo'));
+var favoritesEl = document.querySelector('#favorites');
 
 function initialLoad() {
     for (let i = 0; i < getSavedLocal.length; i++) {
         console.log(getSavedLocal[i])
 
-        var drinkFavoritedContainer = document.createElement("div")
-
-        var drinkFavoritedHeader = document.createElement("div")
-        var drinkTitle = document.createElement("h2")
-
-        var drinkImageContainer = document.createElement("div")
-        var drinkImgLink = document.createElement("a")
-        var drinkImgDisplay = document.createElement("img")
+        var drinkFavoritesContainer = document.createElement('div')
+        var drinkFavoritesHeader = document.createElement('header')
+        var drinkTitle = document.createElement('p')
+        var drinkImgContainer = document.createElement('div')
+        var drinkImgLink = document.createElement('a')
+        var drinkImgDisplay = document.createElement('img')
         var drinkImgData = getSavedLocal[i].drink.strDrinkThumb
+        var drinkContentContainer = document.createElement('div')
+        var drinkContent = document.createElement('div')
 
-        var removeDrinkContainer = document.createElement("div")
-        var removeFavoriteDrink = document.createElement("button")
-
-        drinkFavoritedContainer.setAttribute = ("class", "card")
-        drinkFavoritedHeader.setAttribute = ("class", "card-header customhead" )
-
-        drinkImageContainer.setAttribute = ("class", "card-image")
-        drinkImgDisplay.setAttribute("class", "image is-128x128")
-        
-        drinkImgDisplay.setAttribute("src", drinkImgData)
-        drinkImgDisplay.setAttribute("alt", drinkImgData)
-
-        removeDrinkContainer.setAttribute("class" ,"card-footer" )
-        removeFavoriteDrink.setAttribute("class", "card-footer-item button is-primary is-danger")
+        drinkFavoritesContainer.setAttribute('class', 'card is-3')
+        drinkFavoritesHeader.setAttribute('class', 'card-header custom-head' )
+        drinkTitle.setAttribute ('class', 'card-header-title')
+        drinkImgContainer.setAttribute ("class", 'card-image')
+        drinkImgDisplay.setAttribute('class', 'image is-128x128')
+        drinkImgDisplay.setAttribute('src', drinkImgData)
+        drinkImgDisplay.setAttribute('alt', drinkImgData)
+        drinkContentContainer.setAttribute('class', 'card-content')
+        drinkContent.setAttribute('class', 'content')
        
         drinkTitle.textContent = getSavedLocal[i].drink.strDrink
        
-        drinkFavoritedHeader.append(drinkTitle)
-        drinkImageContainer.append(drinkImgLink)
+        drinkFavoritesHeader.append(drinkTitle)
         drinkImgLink.append(drinkImgDisplay)
-        removeDrinkContainer.append(removeFavoriteDrink)
+        drinkImgContainer.append(drinkImgLink)
+        drinkContentContainer.append(drinkContent)
         
 
-        drinkFavoritedContainer.append(drinkFavoritedHeader,drinkImageContainer,removeDrinkContainer)
+        drinkFavoritesContainer.append(drinkFavoritesHeader, drinkImgContainer, drinkContentContainer)
+
+
 
         //styling for the food containers
-        var foodFavoritedContainer = document.createElement("div")
-
-        var foodFavoritedHeader = document.createElement("div")
-        var foodTitle = document.createElement("h2")
-
-        var foodImageContainer = document.createElement("div")
-        var foodImgLink = document.createElement("a")
-        var foodImgDisplay = document.createElement("img")
+        var foodFavoritesContainer = document.createElement('div')
+        var foodFavoritesHeader = document.createElement('header')
+        var foodTitle = document.createElement('p')
+        var foodImageContainer = document.createElement('div')
+        var foodImgLink = document.createElement('a')
+        var foodImgDisplay = document.createElement('img')
         var foodImgData = getSavedLocal[i].food.image;
         var foodImgUrl = getSavedLocal[i].food.url;
+        var foodContentContainer = document.createElement('div');
+        var foodContent = document.createElement('div');
 
-        var removeFoodContainer = document.createElement("div")
-        var removeFavoriteFood = document.createElement("button")
+       
         
-        foodFavoritedContainer.setAttribute = ("class", "card")
-        foodFavoritedHeader.setAttribute = ("class", "card-header customhead" )
-
-        foodImageContainer.setAttribute = ("class", "card-image")
-        foodImgLink.setAttribute("href", foodImgUrl)
-        foodImgLink.setAttribute("target", "_blank")
-        foodImgDisplay.setAttribute("class", "image is-128x128")
-        foodImgDisplay.setAttribute("src", foodImgData)
-        foodImgDisplay.setAttribute("alt", foodImgData)
-
-        removeFoodContainer.setAttribute("class" ,"card-footer" )
-        removeFavoriteFood.setAttribute("class", "card-footer-item button is-primary is-danger");
-
-
+        foodFavoritesContainer.setAttribute('class', 'card is-3 ')
+        foodFavoritesHeader.setAttribute ('class', 'card-header custom-head' )
+        foodTitle.setAttribute ('class', 'card-header-title')
+        foodImageContainer.setAttribute('class', 'card-image')
+        foodImgLink.setAttribute('href', foodImgUrl)
+        foodImgLink.setAttribute('target', '_blank')
+        foodImgDisplay.setAttribute('class', 'image is-128x128')
+        foodImgDisplay.setAttribute('src', foodImgData)
+        foodImgDisplay.setAttribute('alt', foodImgData)
+        foodContentContainer.setAttribute('class', 'card-content')
+        foodContent.setAttribute('class', 'content')
+        
         foodTitle.textContent = getSavedLocal[i].food.label;
 
-
-        foodFavoritedHeader.append(foodTitle)
-        foodImageContainer.append(foodImgLink)
+        foodFavoritesHeader.append(foodTitle)
         foodImgLink.append(foodImgDisplay)
-        removeFoodContainer.append(removeFavoriteFood)
-
-
+        foodImageContainer.append(foodImgLink)
+        foodContentContainer.append(foodContent)
         
-        
-        foodFavoritedContainer.append(foodFavoritedHeader,foodImageContainer,removeFoodContainer)
+        foodFavoritesContainer.append(foodFavoritesHeader, foodImageContainer, foodContentContainer)
         
         //overall appending for the food and drinks
-        favoritesEl.append(drinkFavoritedContainer, foodFavoritedContainer)
+        favoritesEl.append(drinkFavoritesContainer, foodFavoritesContainer)
         
     }
-    // var savedStuff = JSON.parse(localStorage.getItem("favoriteCombo"))
-    // console.log(savedStuff)
 
-
-    // var y = document.createElement("div")
-    // y.innerHTML = savedStuff.getCurentSaved
-
-
-    // favoritesEl.append(y)
 }
 
-// (removeFavoriteFood).click(function(){ 
-// 	$(this).parent().remove() 
-// }); 
+// clear button
+function clear () {
+    localStorage.clear();
+    window.location.reload();
+  }
+document.querySelector('#clear').onclick = clear; 
+
 
 initialLoad()

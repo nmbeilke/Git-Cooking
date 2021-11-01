@@ -117,10 +117,10 @@ function renderRecipe(recipes) {
     var cardContent = document.createElement('div');
     var cardFooter = document.createElement('footer');
 
-    //set classes for styling from bulma
+    //set classes for styling - from bulma
     card.setAttribute('class', 'card column is-3 is-offset-2');
     cardHeader.setAttribute('class', 'card-header')
-    cardTitle.setAttribute('class', 'card-header-title')
+    cardTitle.setAttribute('class', 'card-header-title');
     cardImgContainer.setAttribute('class', 'card-image');
     imgFigure.setAttribute('class', 'image is-4x3');
     cardImg.setAttribute('src', data.image)
