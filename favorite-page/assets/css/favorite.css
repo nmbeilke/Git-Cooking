@@ -19,7 +19,12 @@
 }
 
 .button {
-    margin: 2px;
+    margin: 2px 0px;
+    background-color: rgb(250, 152, 152);
+}
+
+.card {
+    border-radius: 1px;
 }
 
 .column-custom{
@@ -35,7 +40,6 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    
     padding: 0;
     margin: 0;
     list-style: none;
