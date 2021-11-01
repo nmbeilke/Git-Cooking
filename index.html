@@ -10,15 +10,16 @@
   <link rel="stylesheet"
   href="https://fonts.googleapis.com/css?family=Shrikhand">
   <link rel="stylesheet" href="./home-page/assets/css/style.css">
+  <link rel="shortcut icon" type="image/jpg" href="./home-page/assets/image/favicon.png"/>
   <title>Git Cooking</title>
 </head>
 
 <body>
+
   <!-- hero -->
-
   <section class="hero is-small">
-
     <div class="hero-head">
+
       <!-- navbar -->
       <nav class="navbar">
         <div class="container">
@@ -35,6 +36,7 @@
           </div>
         </div>
       </nav>
+
     </div>
 
     <!-- header -->
@@ -82,6 +84,7 @@
           <option value="food">Random</option>
         </select>
       </span>
+
       <span class="icon is-left">
         <i class="fa fa-cutlery fa-border" aria-hidden="true" style="color: rgb(124, 124, 124);"></i>
       </span>
@@ -104,8 +107,8 @@
           <option class="category" value="other/unknown">Other</option>
           <option class="ignore" value="random">Random</option>
         </select>
-
       </span>
+
       <span class="icon is-small is-left">
         <i class="fa fa-glass fa-border" aria-hidden="true" style="color: rgb(124, 124, 124);"></i>
       </span>
@@ -125,8 +128,10 @@
 
   <hr>
 
+  <!-- recipe pairing result -->
   <div id="recipeContainer" class="columns"></div>
 
+  <!-- save recipe to favorites page -->
   <div class="field center">
     <div class="hidden" id="btnContainer">
       <button class="button is-primary" id='save'>
@@ -135,10 +140,8 @@
     </div>
   </div>
 
-
-  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
   <script src="./home-page/assets/javascript/script.js"></script>
-  <script src="./about-page/js/about.js"></script>
+  
 </body>
 
 </html>
