@@ -44,6 +44,8 @@ We encountered challenges with the APIs themselves, CORS issues, GitHub holdups 
 ## Link
 ![Screenshot of live site](https://raw.githubusercontent.com/nmbeilke/recipe-music-generator/main/home-page/assets/image/Screen%20Shot%202021-10-31%20at%204.38.18%20PM.png)
 
+![Screenshot of favorites page on live site](https://raw.githubusercontent.com/nmbeilke/recipe-music-generator/main/home-page/assets/image/Screen%20Shot%202021-11-01%20at%2012.42.40%20AM.png)
+
 Link to live site: https://nmbeilke.github.io/recipe-music-generator/
 
 ## Contributors 
