@@ -35,6 +35,15 @@ if (drinkSelection === "random") {
 }
 
 function fetchRecipe() {
+    var dropdownFood = document.querySelector('#recipeSelect')
+    if (dropdownFood.options[dropdownFood.selectedIndex].value === "esc") {
+        return
+    }
+    var dropdownDrink = document.querySelector('#drinkSelect');
+    if (dropdownDrink.options[dropdownDrink.selectedIndex].value === "esc") {
+        return
+    }
+   
     fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${food}&app_id=c802a2ec&app_key=687e250fe13f028dca68ea450a6de6ee&random=true`)
         .then(res => res.json())
         .then(data => {
