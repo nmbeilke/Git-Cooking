@@ -1,4 +1,4 @@
-# Git Cooking
+# Git Cooking!
 An app that uses the Edamam and Cocktail DB APIs to generate recipe and drink pairings.
 
 This project required our group to use everything we’ve learned over the past six units to create a real-world front-end application to be able to showcase to potential employers.
