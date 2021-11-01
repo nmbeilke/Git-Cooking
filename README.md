@@ -1,12 +1,12 @@
-# recipe-music-generator
-**Work in progress:** An app that uses the Edamam and Cocktail DB APIs to generate recipe and drink pairings.
+# Git Cooking
+An app that uses the Edamam and Cocktail DB APIs to generate recipe and drink pairings.
 
 This project required our group to use everything we’ve learned over the past six units to create a real-world front-end application to be able to showcase to potential employers.
 
 ## Description
 **Everyone has to eat. And drinks make any meal more fun. You might have go-tos for Sunday brunch at home, date night and dinner parties—or maybe all you eat is instant ramen—but variety is the spice of life.**
 
-**That’s why we created the Food and Drink Ideas Generator, where anyone can discover new ways to expand their palette and experiment with new flavors (for better or for worse).**
+**That’s why we created Git Cooking, a food and drink ideas generator, where anyone can discover new ways to expand their palette and experiment with new flavors (for better or for worse).**
 
 ## User Story
 “As a user who wants to be inspired to cook new things, I want to use an app that will give me recipe and drink ideas to discover new pairings, so that cooking is more fun. And I want to save my pairings so that I can reference them later.”
@@ -42,7 +42,7 @@ We learned a lot about saving to local storage, manipulating API data and good A
 We encountered challenges with the APIs themselves, CORS issues, GitHub holdups and difficulty figuring out local storage. 
 
 ## Link
-![Screenshot of live site]()
+![Screenshot of live site](https://raw.githubusercontent.com/nmbeilke/recipe-music-generator/main/home-page/assets/image/Screen%20Shot%202021-10-31%20at%204.38.18%20PM.png)
 
 Link to live site: https://nmbeilke.github.io/recipe-music-generator/
 
