@@ -46,7 +46,7 @@ We encountered challenges with the APIs themselves, CORS issues, GitHub holdups 
 
 ![Screenshot of favorites page on live site](https://raw.githubusercontent.com/nmbeilke/recipe-music-generator/main/home-page/assets/image/Screen%20Shot%202021-11-01%20at%2012.42.40%20AM.png)
 
-Link to live site: https://nmbeilke.github.io/recipe-music-generator/
+Link to live site: https://nmbeilke.github.io/git-cooking/
 
 ## Contributors 
 Stephanie Apodaca, Nicole Beilke, Edgar Fernandez, Parisa Ostovari
